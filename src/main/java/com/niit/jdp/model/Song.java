@@ -6,4 +6,10 @@
 package com.niit.jdp.model;
 
 public class Song {
+    // Declaring the variables.
+    private int songID;
+    private String songName;
+    private String songGenre;
+    private String songArtist;
+
 }
