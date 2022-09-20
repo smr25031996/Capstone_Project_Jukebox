@@ -5,6 +5,8 @@
  */
 package com.niit.jdp.model;
 
+import java.util.Objects;
+
 public class Song {
     // Declaring the variables.
     private int songID;
@@ -55,5 +57,18 @@ public class Song {
 
     public void setSongArtist(String songArtist) {
         this.songArtist = songArtist;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return songID == song.songID && Objects.equals(songName, song.songName) && Objects.equals(songGenre, song.songGenre) && Objects.equals(songArtist, song.songArtist);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(songID, songName, songGenre, songArtist);
     }
 }
