@@ -23,4 +23,37 @@ public class Song {
         this.songGenre = songGenre;
         this.songArtist = songArtist;
     }
+
+    // This is a getter and setter method.
+    public int getSongID() {
+        return songID;
+    }
+
+    public void setSongID(int songID) {
+        this.songID = songID;
+    }
+
+    public String getSongName() {
+        return songName;
+    }
+
+    public void setSongName(String songName) {
+        this.songName = songName;
+    }
+
+    public String getSongGenre() {
+        return songGenre;
+    }
+
+    public void setSongGenre(String songGenre) {
+        this.songGenre = songGenre;
+    }
+
+    public String getSongArtist() {
+        return songArtist;
+    }
+
+    public void setSongArtist(String songArtist) {
+        this.songArtist = songArtist;
+    }
 }
