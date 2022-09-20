@@ -12,4 +12,15 @@ public class Song {
     private String songGenre;
     private String songArtist;
 
+    // This is a no-args constructor.
+    public Song() {
+    }
+
+    // This is a parametrised constructor.
+    public Song(int songID, String songName, String songGenre, String songArtist) {
+        this.songID = songID;
+        this.songName = songName;
+        this.songGenre = songGenre;
+        this.songArtist = songArtist;
+    }
 }
