@@ -24,4 +24,13 @@ public class DatabaseService {
         // the database is NOT CONNECTED to the Java program.
         this.databaseConnection = null;
     }
+
+    /**
+     * This function returns the database connection.
+     *
+     * @return The databaseConnection object.
+     */
+    public Connection getDatabaseConnection() {
+        return databaseConnection;
+    }
 }
