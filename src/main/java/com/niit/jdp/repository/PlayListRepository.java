@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class PlayListRepository implements PlayListRepositoryInterface {
+public class PlayListRepository implements Repository {
 
     /**
      * It creates a new table in the database with the name of the playlist
@@ -46,6 +46,7 @@ public class PlayListRepository implements PlayListRepositoryInterface {
         return numberOfRowsAffected > 0;
     }
 
+
     /**
      * It removes a song from a playlist
      *
@@ -62,7 +63,6 @@ public class PlayListRepository implements PlayListRepositoryInterface {
             preparedStatement.setInt(1, songId);
             numberOfRowsAffected = preparedStatement.executeUpdate();
         }
-
         return numberOfRowsAffected > 0;
     }
 }

@@ -7,14 +7,11 @@ package com.niit.jdp.repository;
 
 import com.niit.jdp.model.Song;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongRepository implements SongRepositoryInterface {
+public class SongRepository {
 
     /**
      * This method is used to get all the songs from the database
@@ -22,9 +19,8 @@ public class SongRepository implements SongRepositoryInterface {
      * @param connection This is the connection object that is used to connect to the database.
      * @return A list of songs.
      */
-    @Override
-    // This method is used to get all the songs from the database.
-    public List<Song> getAllSong(Connection connection) throws SQLException {
+
+    public List<Song> getAll(Connection connection) throws SQLException {
 
         // Creating a new list of songs.
         List<Song> songs = new ArrayList<>();
@@ -57,5 +53,21 @@ public class SongRepository implements SongRepositoryInterface {
             }
         }
         return songs;
+    }
+
+    /**
+     * This function takes a connection and a song id, and returns the name of the song with that id.
+     *
+     * @param connection The connection to the database.
+     * @param songId     The id of the song you want to get the name of.
+     * @return The name of the song.
+     */
+    public String getSongById(Connection connection, int songId) throws SQLException {
+        String songQuery = "select `song_name` from `songslist` where(`song_id`=?);";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+            preparedStatement.setInt(1, songId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.getString(1);
+        }
     }
 }

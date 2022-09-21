@@ -5,19 +5,22 @@
  */
 package com.niit.jdp.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class PlayList extends Song {
+public class PlayList {
     // fields for class
     private int playListId;
     private String playListName;
+    private List<Song> songList;
 
     // This is a constructor.
     public PlayList() {
+        this.songList = new ArrayList<>();
     }
 
-    public PlayList(int songId, String songName, String songGenre, String songArtist, String songDuration, String songAlbum, int playListId, String playListName) {
-        super(songId, songName, songGenre, songArtist, songDuration, songAlbum);
+    public PlayList(int playListId, String playListName) {
         this.playListId = playListId;
         this.playListName = playListName;
     }
