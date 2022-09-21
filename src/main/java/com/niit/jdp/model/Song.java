@@ -11,25 +11,27 @@ public class Song {
     // Declaring the variables.
     private int songId;
     private String songName;
-    private String songGenre;
     private String songArtist;
-    private int songDuration;
     private String songAlbum;
+    private String songGenre;
+    private String songDuration;
 
     // This is a no-args constructor.
     public Song() {
     }
 
-    public Song(int songId, String songName, String songGenre, String songArtist, int songDuration, String songAlbum) {
-        this.songId = songId;
-        this.songName = songName;
-        this.songGenre = songGenre;
-        this.songArtist = songArtist;
-        this.songDuration = songDuration;
-        this.songAlbum = songAlbum;
-    }
+
 // This is a parametrised constructor.
 
+
+    public Song(int songId, String songName, String songArtist, String songAlbum, String songGenre, String songDuration) {
+        this.songId = songId;
+        this.songName = songName;
+        this.songArtist = songArtist;
+        this.songAlbum = songAlbum;
+        this.songGenre = songGenre;
+        this.songDuration = songDuration;
+    }
 
     // This is a getter and setter method.
     public int getSongId() {
@@ -64,11 +66,11 @@ public class Song {
         this.songArtist = songArtist;
     }
 
-    public int getSongDuration() {
+    public String getSongDuration() {
         return songDuration;
     }
 
-    public void setSongDuration(int songDuration) {
+    public void setSongDuration(String songDuration) {
         this.songDuration = songDuration;
     }
 
