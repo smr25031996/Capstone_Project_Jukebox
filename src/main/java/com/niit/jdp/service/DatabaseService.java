@@ -19,4 +19,9 @@ public class DatabaseService {
     // a private field to store the reference of the connection object
     private Connection databaseConnection;
 
+    public DatabaseService() {
+        // the initial value of `null` represents that the database connection object is not created yet and
+        // the database is NOT CONNECTED to the Java program.
+        this.databaseConnection = null;
+    }
 }
