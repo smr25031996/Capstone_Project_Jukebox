@@ -8,5 +8,5 @@ public interface PlayListRepositoryInterface {
     //method for create  the playlist
     boolean createPlayList(Connection connection, String playListName) throws SQLException;
 
-    boolean addSongInPlayList(Connection connection);
+    boolean addSongInPlayList(Connection connection, String playListName, int songId) throws SQLException;
 }
