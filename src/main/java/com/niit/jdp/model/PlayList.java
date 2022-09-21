@@ -19,4 +19,20 @@ public class PlayList extends Song {
         this.playListId = playListId;
         this.playListName = playListName;
     }
+
+    public int getPlayListId() {
+        return playListId;
+    }
+
+    public void setPlayListId(int playListId) {
+        this.playListId = playListId;
+    }
+
+    public String getPlayListName() {
+        return playListName;
+    }
+
+    public void setPlayListName(String playListName) {
+        this.playListName = playListName;
+    }
 }
