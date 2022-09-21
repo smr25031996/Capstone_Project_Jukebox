@@ -5,5 +5,15 @@
  */
 package com.niit.jdp.repository;
 
-public class SongRepository {
+import com.niit.jdp.model.Song;
+
+import java.sql.Connection;
+import java.util.List;
+
+public class SongRepository implements SongRepositoryInterface {
+    //get all the song list
+    @Override
+    public List<Song> getAllSong(Connection connection) {
+        return null;
+    }
 }
