@@ -25,6 +25,7 @@ public class SongRepository implements SongRepositoryInterface {
     @Override
     // This method is used to get all the songs from the database.
     public List<Song> getAllSong(Connection connection) throws SQLException {
+
         // Creating a new list of songs.
         List<Song> songs = new ArrayList<>();
 

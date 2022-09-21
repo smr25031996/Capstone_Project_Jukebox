@@ -1,6 +1,6 @@
 /*
- * Author Name: Shubham Rajput
- * Date: 20-09-2022
+ * Author Name: Divyansh Bhardwaj
+ * Date: 16-09-2022
  * Created With: IntelliJ IDEA Community Edition
  */
 package com.niit.jdp.service;
@@ -21,30 +21,31 @@ public class DatabaseService {
     // a private field to store the reference of the connection object
     private Connection databaseConnection;
 
-    public DatabaseService() {
-        // the initial value of `null` represents that the database connection object is not created yet and
-        // the database is NOT CONNECTED to the Java program.
-        this.databaseConnection = null;
-    }
-
-    /**
-     * This function returns the database connection.
-     *
-     * @return The databaseConnection object.
-     */
     public Connection getDatabaseConnection() {
         return databaseConnection;
     }
 
-    /**
-     * The `connect()` function loads the JDBC driver into the program memory, and then creates a connection object using
-     * the DriverManager class
-     */
-    public void connect() throws ClassNotFoundException, SQLException {
-        //load the jdbc driver into the program memory optional
+    public DatabaseService() {
+        this.databaseConnection = null;
+    }
+
+    // a method that can connect to the database
+    public boolean connect() throws ClassNotFoundException, SQLException {
+        // 1. load the jdbc driver into the program memory
         Class.forName("com.mysql.cj.jdbc.Driver");
+
         // 2. create a connection object using the DriverManager class
         databaseConnection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
+        // 3. check if the connection is successful
+        return databaseConnection != null;
+    }
+
+    public void printConnectionStatus() {
+        if (databaseConnection != null) {
+            System.out.println("Connected to the database");
+        } else {
+            System.err.println("Not connected to the database");
+        }
     }
 }
