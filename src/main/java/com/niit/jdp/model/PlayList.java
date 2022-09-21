@@ -5,6 +5,8 @@
  */
 package com.niit.jdp.model;
 
+import java.util.Objects;
+
 public class PlayList extends Song {
     // fields for class
     private int playListId;
@@ -34,5 +36,27 @@ public class PlayList extends Song {
 
     public void setPlayListName(String playListName) {
         this.playListName = playListName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PlayList playList = (PlayList) o;
+        return playListId == playList.playListId && Objects.equals(playListName, playList.playListName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), playListId, playListName);
+    }
+
+    @Override
+    public String toString() {
+        return "PlayList{" +
+                "playListId=" + playListId +
+                ", playListName='" + playListName + '\'' +
+                '}';
     }
 }
