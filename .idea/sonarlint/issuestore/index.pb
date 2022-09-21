@@ -21,5 +21,3 @@ w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
 Z
 *src/main/java/com/niit/jdp/model/Song.java,0\1\014d77068afdd61babac0f449091ee271adda5cb
-^
-.src/main/java/com/niit/jdp/model/PlayList.java,7\8\785862512ee3cf8ee540533c6bc419816712a50f

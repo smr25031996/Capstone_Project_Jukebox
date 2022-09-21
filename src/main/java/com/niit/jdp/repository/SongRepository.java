@@ -63,11 +63,22 @@ public class SongRepository {
      * @return The name of the song.
      */
     public String getSongById(Connection connection, int songId) throws SQLException {
+
         String songQuery = "select `song_name` from `songslist` where(`song_id`=?);";
+        //  create a statement object
+        String songName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
             preparedStatement.setInt(1, songId);
+
+            //  execute the query
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.getString(1);
+            while (resultSet.next())
+                // Getting the value of the column `song_name` from the result set.
+                songName = resultSet.getString("song_name");
         }
+        return songName;
     }
 }
+
