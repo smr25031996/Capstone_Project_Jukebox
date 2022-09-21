@@ -36,8 +36,12 @@ public class DatabaseService {
         return databaseConnection;
     }
 
+    /**
+     * The `connect()` function loads the JDBC driver into the program memory, and then creates a connection object using
+     * the DriverManager class
+     */
     public void connect() throws ClassNotFoundException, SQLException {
-        //load the jdbc driver into the program memory
+        //load the jdbc driver into the program memory optional
         Class.forName("com.mysql.cj.jdbc.Driver");
         // 2. create a connection object using the DriverManager class
         databaseConnection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
