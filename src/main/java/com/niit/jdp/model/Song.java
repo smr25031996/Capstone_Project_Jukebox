@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Song {
     // Declaring the variables.
-    private int songID;
+    private int songId;
     private String songName;
     private String songGenre;
     private String songArtist;
@@ -19,20 +19,20 @@ public class Song {
     }
 
     // This is a parametrised constructor.
-    public Song(int songID, String songName, String songGenre, String songArtist) {
-        this.songID = songID;
+    public Song(int songId, String songName, String songGenre, String songArtist) {
+        this.songId = songId;
         this.songName = songName;
         this.songGenre = songGenre;
         this.songArtist = songArtist;
     }
 
     // This is a getter and setter method.
-    public int getSongID() {
-        return songID;
+    public int getSongId() {
+        return songId;
     }
 
-    public void setSongID(int songID) {
-        this.songID = songID;
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
     public String getSongName() {
@@ -64,16 +64,16 @@ public class Song {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Song song = (Song) o;
-        return songID == song.songID && Objects.equals(songName, song.songName) && Objects.equals(songGenre, song.songGenre) && Objects.equals(songArtist, song.songArtist);
+        return songId == song.songId && Objects.equals(songName, song.songName) && Objects.equals(songGenre, song.songGenre) && Objects.equals(songArtist, song.songArtist);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(songID, songName, songGenre, songArtist);
+        return Objects.hash(songId, songName, songGenre, songArtist);
     }
 
     @Override
     public String toString() {
-        return "Song{" + "songID=" + songID + ", songName='" + songName + '\'' + ", songGenre='" + songGenre + '\'' + ", songArtist='" + songArtist + '\'' + '}';
+        return "Song{" + "songID=" + songId + ", songName='" + songName + '\'' + ", songGenre='" + songGenre + '\'' + ", songArtist='" + songArtist + '\'' + '}';
     }
 }
