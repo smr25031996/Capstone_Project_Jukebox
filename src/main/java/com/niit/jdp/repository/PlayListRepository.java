@@ -5,8 +5,6 @@
  */
 package com.niit.jdp.repository;
 
-import com.niit.jdp.model.Song;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,16 +17,13 @@ public class PlayListRepository implements PlayListRepositoryInterface {
      *
      * @param connection   Connection object
      * @param playListName The name of the playlist to be created.
-     * @return The number of rows affected by the query.
      */
     @Override
-    public boolean createPlayList(Connection connection, String playListName) throws SQLException {
+    public void createPlayList(Connection connection, String playListName) throws SQLException {
         String playListQuery = "CREATE TABLE `" + playListName + "` (`song_id` INT NOT NULL PRIMARY KEY,`song_name` VARCHAR(50),`artist_name` VARCHAR(50),`album_name` VARCHAR(50),`song_genre` VARCHAR(50),`song_duration` varchar(20));";
-        boolean isQueryExecuted;
         try (Statement statement = connection.createStatement()) {
-            isQueryExecuted = statement.execute(playListQuery);
+            statement.execute(playListQuery);
         }
-        return isQueryExecuted;
     }
 
     /**
@@ -41,7 +36,6 @@ public class PlayListRepository implements PlayListRepositoryInterface {
      */
     @Override
     public boolean addSongInPlayList(Connection connection, String playListName, int songId) throws SQLException {
-        Song song = new Song();
         String addSongQuery = "INSERT INTO `" + playListName + "` (`song_id`,`song_name`,`artist_name`,`album_name`,`song_genre`,`song_duration`)SELECT * FROM `songslist` where `song_id`=? ";
         int numberOfRowsAffected;
         try (PreparedStatement preparedStatement = connection.prepareStatement(addSongQuery)) {
@@ -49,6 +43,25 @@ public class PlayListRepository implements PlayListRepositoryInterface {
 
             numberOfRowsAffected = preparedStatement.executeUpdate();
         }
+        return numberOfRowsAffected > 0;
+    }
+
+    /**
+     * It removes a song from a playlist
+     *
+     * @param connection   The connection object to the database.
+     * @param playListName The name of the playlist from which the song is to be removed.
+     * @param songId       The id of the song to be removed from the playlist.
+     * @return The method returns a boolean value.
+     */
+    public boolean removeSongFromPlayList(Connection connection, String playListName, int songId) throws SQLException {
+        String removeQuery = "DELETE FROM `jukebox`.`" + playListName + "` WHERE (`song_id` = ?);";
+        int numberOfRowsAffected;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(removeQuery)) {
+            preparedStatement.setInt(1, songId);
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        }
+
         return numberOfRowsAffected > 0;
     }
 }
