@@ -1,10 +1,10 @@
 /*
  * Author Name: Shubham Rajput
- * Date: 20-09-2022
+ * Date: 21-09-2022
  * Created With: IntelliJ IDEA Community Edition
  */
 package com.niit.jdp.repository;
 
-public class PlayListRepository {
+public class MusicControlRepository {
 
 }

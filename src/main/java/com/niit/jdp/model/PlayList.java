@@ -16,7 +16,7 @@ public class PlayList extends Song {
     public PlayList() {
     }
 
-    public PlayList(int songId, String songName, String songGenre, String songArtist, int songDuration, String songAlbum, int playListId, String playListName) {
+    public PlayList(int songId, String songName, String songGenre, String songArtist, String songDuration, String songAlbum, int playListId, String playListName) {
         super(songId, songName, songGenre, songArtist, songDuration, songAlbum);
         this.playListId = playListId;
         this.playListName = playListName;
