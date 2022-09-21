@@ -54,6 +54,7 @@ public class PlayListRepository implements PlayListRepositoryInterface {
      * @param songId       The id of the song to be removed from the playlist.
      * @return The method returns a boolean value.
      */
+    @Override
     public boolean removeSongFromPlayList(Connection connection, String playListName, int songId) throws SQLException {
         String removeQuery = "DELETE FROM `jukebox`.`" + playListName + "` WHERE (`song_id` = ?);";
         int numberOfRowsAffected;
