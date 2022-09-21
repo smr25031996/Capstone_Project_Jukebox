@@ -3,12 +3,8 @@ w
 G.idea/sonarlint/issuestore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec,8\a\8a6dae537be9f47878c6964c6ee40cab0ca75e28
 w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
-q
-Asrc/main/java/com/niit/jdp/repository/MusicControlRepository.java,2\5\257e5845c8185c25f01ff1b1df3d3f3898f44930
 r
 Bsrc/main/java/com/niit/jdp/repository/SongRepositoryInterface.java,e\3\e3f37f3653d774ceabea2a8053850c2e568108de
-^
-.src/main/java/com/niit/jdp/model/PlayList.java,7\8\785862512ee3cf8ee540533c6bc419816712a50f
 w
 G.idea/sonarlint/issuestore/3/0/30f9777ea696a18aa49d3e9967e93a4276065227,b\7\b74e8c230459235775e2f7c88126ddb0ac14fa2d
 w
@@ -19,5 +15,3 @@ w
 G.idea/sonarlint/issuestore/7/8/785862512ee3cf8ee540533c6bc419816712a50f,3\1\31536ba4a1dff3963593188a9ae1bbfd5845b9c2
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-g
-7src/main/java/com/niit/jdp/service/DatabaseService.java,d\f\df915df9a9d3dc9bcfe75dc66a18455a235f099a
