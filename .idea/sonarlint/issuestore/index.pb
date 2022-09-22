@@ -29,3 +29,17 @@ w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
 e
 5src/main/java/com/niit/jdp/repository/Repository.java,b\f\bf6f65185120d5158c3b2f1089d03db6c03b1b2b
+w
+G.idea/sonarlint/issuestore/e/6/e68d05057320b2f64e1f84f31ee77258c51131a3,2\8\2869cbeed3d784a26542efc008e61c925a140038
+w
+G.idea/sonarlint/issuestore/c/e/ce1fcd3de1d95d304ea801bc3aa60d9dfc768ac0,5\d\5d07bbe9af01ff7496bcda14385f198368cc94f9
+w
+G.idea/sonarlint/issuestore/0/d/0d28653d051caac2a22e9fa58452afea58a3fe38,0\9\0935057ec1c3159496f7f86accd3e4b7ff59caab
+w
+G.idea/sonarlint/issuestore/e/7/e72013ca1ca5900c60bb0f3e4bd9681346413ed5,c\0\c04c2ff81e3dbdb25e1f1444fea8a3239c1cbca8
+w
+G.idea/sonarlint/issuestore/b/f/bf6f65185120d5158c3b2f1089d03db6c03b1b2b,3\0\30d5b15bbe3bdfb591f23d15805260a4787348d7
+g
+7src/main/java/com/niit/jdp/service/DatabaseService.java,d\f\df915df9a9d3dc9bcfe75dc66a18455a235f099a
+g
+7src/main/java/com/niit/jdp/service/SongListService.java,a\6\a632ffe3f213beb5eb5272e3b046a02a04a0e660

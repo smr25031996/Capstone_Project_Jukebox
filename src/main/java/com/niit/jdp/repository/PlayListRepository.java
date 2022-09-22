@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.repository;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ public class PlayListRepository implements Repository {
      * @param playListName The name of the playlist to be created.
      */
     @Override
-    public void createPlayList(Connection connection, String playListName) throws SQLException {
+    public void createPlayList(Connection connection, String
+            playListName) throws SQLException {
         String playListQuery = "CREATE TABLE `" + playListName + "` (`song_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,`song_name` VARCHAR(50),`artist_name` VARCHAR(50),`album_name` VARCHAR(50),`song_genre` VARCHAR(50),`song_duration` varchar(20));";
         try (Statement statement = connection.createStatement()) {
             statement.execute(playListQuery);
@@ -43,6 +45,26 @@ public class PlayListRepository implements Repository {
 
             numberOfRowsAffected = preparedStatement.executeUpdate();
         }
+        return numberOfRowsAffected > 0;
+    }
+
+    /**
+     * It takes a connection, an album name and a playlist name as parameters and adds all the songs from the album to the
+     * playlist
+     *
+     * @param connection Connection object
+     * @param album      The name of the album to be added to the playlist.
+     * @param playList   The name of the playlist to which the album is to be added.
+     * @return boolean
+     */
+    public boolean addAlbumToThePlayList(Connection connection, String album, String playList) throws SQLException {
+        String addAlbum = "INSERT INTO `" + playList + "` (`song_id`,`song_name`,`artist_name`,`album_name`,`song_genre`,`song_duration`)SELECT * FROM `songslist` where `album_name`=? ";
+        int numberOfRowsAffected;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(addAlbum)) {
+            preparedStatement.setString(1, album);
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        }
+
         return numberOfRowsAffected > 0;
     }
 
