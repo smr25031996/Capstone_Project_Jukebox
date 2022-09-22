@@ -23,7 +23,8 @@ public class PlayListService {
      * @param sortType The type of sorting you want to do.
      * @return A list of songs sorted according to the given type.
      */
-    public List<Song> sortAccordingToGivenType(String sortType) throws SQLException {
+    public List<Song> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
+        databaseService.connect();
         List<Song> songList = songRepository.getAll(databaseService.getDatabaseConnection());
         Comparator<Song> songComparator = (o1, o2) -> {
             switch (sortType) {
@@ -41,6 +42,15 @@ public class PlayListService {
         };
         songList.sort(songComparator);
         return songList;
+    }
+
+    public void displaySortedList(List<Song> playList, String sortType, String playListName) throws SQLException, ClassNotFoundException {
+        List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
+        System.out.println("=========================================================================================");
+        System.out.println("Song Name           Artist              Album          Genre          Duration");
+        sortedAccordingToGivenType.forEach(System.out::println);
+        System.out.println("=========================================================================================");
+
     }
 
 }

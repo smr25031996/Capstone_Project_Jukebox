@@ -17,8 +17,6 @@ w
 G.idea/sonarlint/issuestore/b/7/b74e8c230459235775e2f7c88126ddb0ac14fa2d,f\b\fb161f50f4ccaeff05773bcbbd14483b77364e1c
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
-Z
-*src/main/java/com/niit/jdp/model/Song.java,0\1\014d77068afdd61babac0f449091ee271adda5cb
 w
 G.idea/sonarlint/issuestore/0/1/014d77068afdd61babac0f449091ee271adda5cb,e\6\e68d05057320b2f64e1f84f31ee77258c51131a3
 w

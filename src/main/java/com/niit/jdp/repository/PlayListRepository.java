@@ -20,7 +20,7 @@ public class PlayListRepository implements Repository {
      */
     @Override
     public void createPlayList(Connection connection, String playListName) throws SQLException {
-        String playListQuery = "CREATE TABLE `" + playListName + "` (`song_id` INT NOT NULL PRIMARY KEY,`song_name` VARCHAR(50),`artist_name` VARCHAR(50),`album_name` VARCHAR(50),`song_genre` VARCHAR(50),`song_duration` varchar(20));";
+        String playListQuery = "CREATE TABLE `" + playListName + "` (`song_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,`song_name` VARCHAR(50),`artist_name` VARCHAR(50),`album_name` VARCHAR(50),`song_genre` VARCHAR(50),`song_duration` varchar(20));";
         try (Statement statement = connection.createStatement()) {
             statement.execute(playListQuery);
         }
