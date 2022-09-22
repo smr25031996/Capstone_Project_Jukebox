@@ -5,43 +5,53 @@
  */
 package com.niit.jdp.service;
 
-import com.niit.jdp.model.Song;
-
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import java.util.Scanner;
 
 public class MusicPlayerService {
     /**
      * It takes a song name and a list of songs as parameters, and plays the song with the given name from the given list
      *
      * @param songName the name of the song file
-     * @param songList a list of songs that the user can choose from
      */
-    public void playSong(String songName, List<Song> songList) throws InterruptedException {
+    public void playSongPlaylist(String songName) {
+        Scanner scanner = new Scanner(System.in);
         String path = "src/main/resources/songslist/" + songName + ".wav";
-        // 2. a file object that contains our song
-        File songFile = new File(path);
         try {
-            // 3. an object of the AudioInputStream class
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(songFile);
-            // 4. get a clip object from the AudioSystem
-            Clip clip = AudioSystem.getClip();
-            // 5. use the clip object to open the audio input stream
-            clip.open(audioInputStream);
-            // 6. set a loop for the sound file
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            // 7. start the sound file
-            clip.start();
-            // 8. pause the current thread for the time the song is being played
-            long songDurationInMilliseconds = clip.getMicrosecondLength() / 1000L;
-            Thread.sleep(songDurationInMilliseconds);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException exception) {
-            System.err.println(exception.getMessage());
+            File file = new File(path);
+            if (file.exists()) {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+                // Creating a Clip object.
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+                JButton jButton;
+                jButton = new JButton("Pause");
+                JOptionPane.showMessageDialog(null, "Press Pause to pause PLaying");
+                long clipTimePosition = clip.getMicrosecondPosition();
+                clip.stop();
+                jButton = new JButton("Resume");
+                JOptionPane.showMessageDialog(null, "Press Resume to resume PLaying");
+                clip.setMicrosecondPosition(clipTimePosition);
+                clip.start();
+                jButton = new JButton("Stop");
+                JOptionPane.showMessageDialog(null, "Press Stop to Stop PLaying");
+            } else {
+                System.out.println("Can't Find File");
+            }
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
+
+
     }
+
+
 }
 
 
