@@ -22,7 +22,6 @@ public class SongRepository {
      * @param connection This is the connection object that is used to connect to the database.
      * @return A list of songs.
      */
-
     public List<Song> getAll(Connection connection) throws SQLException {
 
         // Creating a new list of songs.
