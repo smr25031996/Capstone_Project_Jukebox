@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
 
-public class SongList {
+public class SongListService {
     // Creating an object of SongRepository class.
     SongRepository songRepository = new SongRepository();
 
@@ -52,4 +52,6 @@ public class SongList {
         songList.sort(songComparator);
         return songList;
     }
+
+
 }
