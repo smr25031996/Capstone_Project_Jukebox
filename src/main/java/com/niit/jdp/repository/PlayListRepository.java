@@ -46,7 +46,6 @@ public class PlayListRepository implements Repository {
         return numberOfRowsAffected > 0;
     }
 
-
     /**
      * It removes a song from a playlist
      *

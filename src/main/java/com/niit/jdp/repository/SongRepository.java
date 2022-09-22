@@ -75,6 +75,7 @@ public class SongRepository {
             //  execute the query
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
+
                 // Getting the value of the column `song_name` from the result set.
                 songName = resultSet.getString("song_name");
         }
