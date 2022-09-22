@@ -13,6 +13,7 @@ import java.util.List;
 
 public class SongRepository {
 
+    // A variable that is used to store the name of the column `song_name` in the database.
     String song = "song_name";
 
     /**
@@ -84,6 +85,13 @@ public class SongRepository {
         return songName;
     }
 
+    /**
+     * It takes a connection object and a song name as parameters and returns the song name if it exists in the database
+     *
+     * @param connection The connection object that is used to connect to the database.
+     * @param songName   The name of the song that we want to search for.
+     * @return The song name is being returned.
+     */
     public String getSongBySongName(Connection connection, String songName) throws SQLException {
 
         String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
@@ -104,6 +112,13 @@ public class SongRepository {
         return searchedSongName;
     }
 
+    /**
+     * It takes a connection object and a song name as input and returns the name of the album to which the song belongs
+     *
+     * @param connection The connection object that is used to connect to the database.
+     * @param album      The name of the album.
+     * @return The song name is being returned.
+     */
     public String getSongByAlbum(Connection connection, String album) throws SQLException {
 
         String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
@@ -124,6 +139,13 @@ public class SongRepository {
         return searchedSongName;
     }
 
+    /**
+     * It takes a connection object and a genre as parameters and returns the name of the song that belongs to the genre
+     *
+     * @param connection The connection object that is used to connect to the database.
+     * @param genre      The genre of the song.
+     * @return The song name is being returned.
+     */
     public String getSongByGenre(Connection connection, String genre) throws SQLException {
 
         String songQuery = "select `song_name` from `songslist` where(`song_genre`=?);";
@@ -144,6 +166,13 @@ public class SongRepository {
         return searchedSongName;
     }
 
+    /**
+     * It takes a connection object and an artist name as input and returns the song name of the artist
+     *
+     * @param connection The connection object that is used to connect to the database.
+     * @param artist     The name of the artist whose song you want to search for.
+     * @return The song name is being returned.
+     */
     public String getSongByArtists(Connection connection, String artist) throws SQLException {
 
         String songQuery = "select `song_name` from `songslist` where(`artist_name`=?);";
