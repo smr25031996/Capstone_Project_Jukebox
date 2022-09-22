@@ -17,7 +17,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException {
-        String music = "142";
+        String music = "14";
         SongListService songListService = new SongListService();
         try {
             songListService.displaySongMenu();

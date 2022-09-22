@@ -6,10 +6,6 @@ G.idea/sonarlint/issuestore/3/0/30f9777ea696a18aa49d3e9967e93a4276065227,b\7\b7
 w
 G.idea/sonarlint/issuestore/8/a/8a6dae537be9f47878c6964c6ee40cab0ca75e28,8\e\8e3d5572111947a6fc62da316a319faf3e927047
 w
-G.idea/sonarlint/issuestore/7/8/785862512ee3cf8ee540533c6bc419816712a50f,3\1\31536ba4a1dff3963593188a9ae1bbfd5845b9c2
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-w
 G.idea/sonarlint/issuestore/3/1/31536ba4a1dff3963593188a9ae1bbfd5845b9c2,9\b\9b175bb860b02d0dfcb22704b0448e8dd8a0c10c
 w
 G.idea/sonarlint/issuestore/8/e/8e3d5572111947a6fc62da316a319faf3e927047,9\8\98cdda3e00c24ac72814f7f2d393d547a1eae62b
@@ -17,8 +13,6 @@ w
 G.idea/sonarlint/issuestore/b/7/b74e8c230459235775e2f7c88126ddb0ac14fa2d,f\b\fb161f50f4ccaeff05773bcbbd14483b77364e1c
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
-w
-G.idea/sonarlint/issuestore/0/1/014d77068afdd61babac0f449091ee271adda5cb,e\6\e68d05057320b2f64e1f84f31ee77258c51131a3
 w
 G.idea/sonarlint/issuestore/f/b/fb161f50f4ccaeff05773bcbbd14483b77364e1c,e\7\e72013ca1ca5900c60bb0f3e4bd9681346413ed5
 w
@@ -39,7 +33,3 @@ w
 G.idea/sonarlint/issuestore/e/7/e72013ca1ca5900c60bb0f3e4bd9681346413ed5,c\0\c04c2ff81e3dbdb25e1f1444fea8a3239c1cbca8
 w
 G.idea/sonarlint/issuestore/b/f/bf6f65185120d5158c3b2f1089d03db6c03b1b2b,3\0\30d5b15bbe3bdfb591f23d15805260a4787348d7
-g
-7src/main/java/com/niit/jdp/service/DatabaseService.java,d\f\df915df9a9d3dc9bcfe75dc66a18455a235f099a
-g
-7src/main/java/com/niit/jdp/service/SongListService.java,a\6\a632ffe3f213beb5eb5272e3b046a02a04a0e660
