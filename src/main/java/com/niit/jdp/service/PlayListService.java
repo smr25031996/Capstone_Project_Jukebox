@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.service;
 
+import com.niit.jdp.model.PlayList;
 import com.niit.jdp.model.Song;
 import com.niit.jdp.repository.SongRepository;
 
@@ -23,10 +24,14 @@ public class PlayListService {
      * @param sortType The type of sorting you want to do.
      * @return A list of songs sorted according to the given type.
      */
-    public List<Song> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
+    public List<PlayList> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
         databaseService.connect();
-        List<Song> songList = songRepository.getAll(databaseService.getDatabaseConnection());
-        Comparator<Song> songComparator = (o1, o2) -> {
+        List<PlayList> songList = null;
+        List<Song> songList1 = songRepository.getAll(databaseService.getDatabaseConnection());
+        for (int index = 0; index < songList1.size(); index++) {
+            songList.add(songList1.get(index));
+        }
+        Comparator<PlayList> songComparator = (o1, o2) -> {
             switch (sortType) {
                 case "songName":
                     return String.CASE_INSENSITIVE_ORDER.compare(o1.getSongName(), o2.getSongName());
@@ -52,7 +57,7 @@ public class PlayListService {
      * @param playListName The name of the playlist that you want to display.
      */
     public void displaySortedList(String sortType, String playListName) throws SQLException, ClassNotFoundException {
-        List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
+        List<PlayList> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
         System.out.println("playListName = " + playListName);
         System.out.println("=========================================================================================");
         System.out.println("SongId    Song Name           Artist              Album          Genre          Duration");

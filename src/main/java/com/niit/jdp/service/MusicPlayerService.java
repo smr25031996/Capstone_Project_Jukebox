@@ -19,7 +19,7 @@ public class MusicPlayerService {
      * @param songName the name of the song file
      * @param songList a list of songs that the user can choose from
      */
-    public void playSong(String songName, List<Song> songList) {
+    public void playSong(String songName, List<Song> songList) throws InterruptedException {
         String path = "src/main/resources/songslist/" + songName + ".wav";
         // 2. a file object that contains our song
         File songFile = new File(path);
@@ -40,8 +40,6 @@ public class MusicPlayerService {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
-        } catch (InterruptedException e) {
-            System.err.println("song thread was interrupted");
         }
     }
 }

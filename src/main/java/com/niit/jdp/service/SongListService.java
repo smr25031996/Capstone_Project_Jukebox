@@ -5,11 +5,9 @@
  */
 package com.niit.jdp.service;
 
-import com.niit.jdp.model.Song;
 import com.niit.jdp.repository.SongRepository;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class SongListService {
     // Creating an object of SongRepository class.
@@ -23,7 +21,7 @@ public class SongListService {
      */
     public void displaySongMenu() throws SQLException, ClassNotFoundException {
         databaseService.connect();
-        List<Song> allSong = songRepository.getAll(databaseService.getDatabaseConnection());
+        var allSong = songRepository.getAll(databaseService.getDatabaseConnection());
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("SongId    Song Name           Artist              Album          Genre          Duration");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");

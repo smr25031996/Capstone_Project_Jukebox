@@ -7,7 +7,7 @@ package com.niit.jdp.model;
 
 import java.util.Objects;
 
-public class Song {
+public class Song extends PlayList {
     // Declaring the variables.
     private int songId;
     private String songName;

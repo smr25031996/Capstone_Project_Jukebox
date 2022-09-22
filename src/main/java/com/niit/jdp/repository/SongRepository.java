@@ -13,6 +13,8 @@ import java.util.List;
 
 public class SongRepository {
 
+    String song = "song_name";
+
     /**
      * This method is used to get all the songs from the database
      *
@@ -46,10 +48,10 @@ public class SongRepository {
                 String duration = songList.getString(6);
 
                 //iterating over the result set crating song object fpr each row
-                Song song = new Song(id, name, artist, album, genre, duration);
+                Song songRecord = new Song(id, name, artist, album, genre, duration);
 
                 // Adding the song object to the list of songs.
-                songs.add(song);
+                songs.add(songRecord);
             }
         }
         return songs;
@@ -77,9 +79,91 @@ public class SongRepository {
             while (resultSet.next())
 
                 // Getting the value of the column `song_name` from the result set.
-                songName = resultSet.getString("song_name");
+                songName = resultSet.getString(song);
         }
         return songName;
     }
+
+    public String getSongBySongName(Connection connection, String songName) throws SQLException {
+
+        String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
+        //  create a statement object
+        String searchedSongName = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setString(1, songName);
+
+            //  execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+
+                // Getting the value of the column `song_name` from the result set.
+                searchedSongName = resultSet.getString(song);
+        }
+        return searchedSongName;
+    }
+
+    public String getSongByAlbum(Connection connection, String album) throws SQLException {
+
+        String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
+        //  create a statement object
+        String searchedSongName = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setString(1, album);
+
+            //  execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+
+                // Getting the value of the column `song_name` from the result set.
+                searchedSongName = resultSet.getString(song);
+        }
+        return searchedSongName;
+    }
+
+    public String getSongByGenre(Connection connection, String genre) throws SQLException {
+
+        String songQuery = "select `song_name` from `songslist` where(`song_genre`=?);";
+        //  create a statement object
+        String searchedSongName = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setString(1, genre);
+
+            //  execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+
+                // Getting the value of the column `song_name` from the result set.
+                searchedSongName = resultSet.getString(song);
+        }
+        return searchedSongName;
+    }
+
+    public String getSongByArtists(Connection connection, String artist) throws SQLException {
+
+        String songQuery = "select `song_name` from `songslist` where(`artist_name`=?);";
+        //  create a statement object
+        String searchedSongName = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setString(1, artist);
+
+            //  execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+
+                // Getting the value of the column `song_name` from the result set.
+                searchedSongName = resultSet.getString(song);
+        }
+        return searchedSongName;
+    }
+
+
 }
 
