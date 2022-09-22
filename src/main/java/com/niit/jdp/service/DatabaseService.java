@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.service;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -30,6 +31,13 @@ public class DatabaseService {
     }
 
     // a method that can connect to the database
+
+    /**
+     * The function `connect()` loads the JDBC driver into the program memory, creates a connection object using the
+     * DriverManager class, and checks if the connection is successful
+     *
+     * @return A boolean value.
+     */
     public boolean connect() throws ClassNotFoundException, SQLException {
         // 1. load the jdbc driver into the program memory
         Class.forName("com.mysql.cj.jdbc.Driver");

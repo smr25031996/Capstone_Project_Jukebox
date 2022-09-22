@@ -21,8 +21,6 @@ w
 G.idea/sonarlint/issuestore/9/8/98cdda3e00c24ac72814f7f2d393d547a1eae62b,0\d\0d28653d051caac2a22e9fa58452afea58a3fe38
 w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
-e
-5src/main/java/com/niit/jdp/repository/Repository.java,b\f\bf6f65185120d5158c3b2f1089d03db6c03b1b2b
 w
 G.idea/sonarlint/issuestore/e/6/e68d05057320b2f64e1f84f31ee77258c51131a3,2\8\2869cbeed3d784a26542efc008e61c925a140038
 w

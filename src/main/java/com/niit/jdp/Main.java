@@ -6,6 +6,7 @@
 
 package com.niit.jdp;
 
+import com.niit.jdp.model.PlayList;
 import com.niit.jdp.repository.PlayListRepository;
 import com.niit.jdp.repository.SongRepository;
 import com.niit.jdp.service.DatabaseService;
@@ -14,10 +15,11 @@ import com.niit.jdp.service.PlayListService;
 import com.niit.jdp.service.SongListService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException {
-        String music = "14";
+        String music = "29";
         SongListService songListService = new SongListService();
         try {
             songListService.displaySongMenu();
@@ -43,6 +45,8 @@ public class Main {
 
         String songById1 = songRepository.getSongById(databaseService.getDatabaseConnection(), 5);
         System.out.println("songById1 = " + songById1);
+        List<PlayList> allSongsInPlayList = playListRepository.getAllSongsInPlayList(databaseService.getDatabaseConnection(), music);
+        allSongsInPlayList.stream().forEach(System.out::println);
 
         MusicPlayerService musicPlayerService = new MusicPlayerService();
         musicPlayerService.playSongPlaylist(songById1);
