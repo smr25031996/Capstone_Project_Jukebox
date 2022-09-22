@@ -5,28 +5,28 @@
 -- Telling the database to use the jukebox database.
     use `jukebox`;
 
--- This is creating a table called songsList with the following columns: song_id, song_name, artist_name, album_name, song_genere, song_duartion.
-    create TABLE `songsList` (
+-- This is creating a table called songsList with the following columns: song_id, song_name, artist_name, album_name, song_genre, song_duration.
+    CREATE TABLE `songsList` (
     `song_id` INT NOT NULL PRIMARY KEY,
     `song_name` VARCHAR(50),
     `artist_name` VARCHAR(50),
     `album_name` VARCHAR(50),
-    `song_genere` VARCHAR(50),
-    `song_duartion` VARCHAR(20)
+    `song_genre` VARCHAR(50),
+    `song_duration` VARCHAR(20)
+);
 );
 
 -- This is inserting the values into the table songsList.
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('1', 'Aoge jab Tum', 'Ustad rashid Kahn', 'unplugged', 'classical', '3:26');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('2', 'Voice of the moon', 'Anoushka Shankar', 'unplugged', 'instrumental', '13:59');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('3', 'Apsara Ali', 'Ajay Atul', 'natrang', 'lavani', '3:51');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('4', 'Chandra', 'Shreya Ghoshal', 'Chandramukhi', 'lavani', '5:21');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('5', 'Chaudari', 'Mane Khan', 'Folk', 'rajsthani', '7:00');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('6', 'Husna', 'Piyush Mishra', 'MTV', 'poem', '8:02');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('7', 'Ki Banu Duniya Da', 'Gurdas Maan', 'MTV', 'punjabi', '7:59');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('8', 'Raghupati Raghav', 'Ashit Desai', 'bhanjan', 'devotional', '4:14');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('9', 'Rangpura Vihara', 'Shravan Kumar Raman', 'indian raga', 'carnatic', '3:14');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('10', 'Samja vara gamna', 'Karthi', 'indian raga', 'carnatic', '5:20');
-insert into `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genere`, `song_duartion`) values ('11', 'Tu mane ya na mane', 'Wadali Brothres', 'folk', 'rajsthani', '10:04');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES('1', 'Ajeeb Dastaan Hai Yeh', 'Lata Didi', 'Ajeeb Dastaan Hai Yeh','Melody','0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('2', 'Matargashti', 'Mohit Chauhan', 'Tamasha', 'Party', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('3', 'Mere Sapnon Ki Rani ', 'Kishore Kumar', 'Aradhana', 'Retro', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('4', 'Dil Se Re', 'A R Rehman', 'Dil Se', 'Golden Era', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('5', 'Agar Tum Saath Ho', 'Arijit Singh', 'Tamasha', 'New Era', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('6', 'airanichya deva', 'Lata Didi', 'MarathiHits', 'Marathi', '3:25');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('7', 'Yeh Kya Hua', 'Rajesh Khanna', 'Amar Prem', 'Hindi Retro', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('8', ' Jai Ho', 'Sukhvindar', 'Slumdog', '2010 Hits', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('9', 'Yeh Jo Mohabbat Hai', 'Kishore Kumar', 'Kati Patang', 'Retro', '0:30');
+INSERT INTO `jukebox`.`songslist` (`song_id`, `song_name`, `artist_name`, `album_name`, `song_genre`, `song_duration`) VALUES ('10', ' Kabhi Neem Neem', 'A R Rehman', 'Yuva', 'Golden Era', '0:30');
 
 
 
