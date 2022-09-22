@@ -44,13 +44,21 @@ public class PlayListService {
         return songList;
     }
 
-    public void displaySortedList(List<Song> playList, String sortType, String playListName) throws SQLException, ClassNotFoundException {
+    /**
+     * It takes a list of songs, a sort type and a playlist name as input and displays the songs in the playlist sorted
+     * according to the sort type
+     *
+     * @param sortType     This is the type of sorting that the user wants to do.
+     * @param playListName The name of the playlist that you want to display.
+     */
+    public void displaySortedList(String sortType, String playListName) throws SQLException, ClassNotFoundException {
         List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
+        System.out.println("playListName = " + playListName);
         System.out.println("=========================================================================================");
-        System.out.println("Song Name           Artist              Album          Genre          Duration");
+        System.out.println("SongId    Song Name           Artist              Album          Genre          Duration");
+        System.out.println("=========================================================================================");
         sortedAccordingToGivenType.forEach(System.out::println);
         System.out.println("=========================================================================================");
-
     }
 
 }

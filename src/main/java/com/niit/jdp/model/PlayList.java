@@ -113,7 +113,7 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return String.format("%-10s%-20s%-20s%-15s%-15s%-15s", songName, songArtist, songAlbum, songGenre, songDuration);
+        return String.format("%-10s%-20s%-20s%-15s%-15s%-15s", songId, songName, songArtist, songAlbum, songGenre, songDuration);
 
     }
 }

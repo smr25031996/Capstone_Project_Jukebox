@@ -13,6 +13,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class MusicPlayerService {
+    /**
+     * It takes a song name and a list of songs as parameters, and plays the song with the given name from the given list
+     *
+     * @param songName the name of the song file
+     * @param songList a list of songs that the user can choose from
+     */
     public void playSong(String songName, List<Song> songList) {
         String path = "src/main/resources/songslist/" + songName + ".wav";
         // 2. a file object that contains our song
