@@ -5,9 +5,12 @@
  */
 package com.niit.jdp.service;
 
+import com.niit.jdp.model.PlayList;
+
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -15,23 +18,21 @@ import static java.lang.System.*;
 public class MusicPlayerService {
     private File file;
 
-    // to store current position
-    private long currentFrame;
+    // Used to read audio data from an audio stream.
+    AudioInputStream audioInputStream;
     // current status of clip
     private String status;
-
+    // to store current position
+    private long currentFrame;
     // A variable of type Clip.
     private Clip clip;
-    // Used to read audio data from an audio stream.
-    private AudioInputStream audioInputStream;
-
 
     /**
      * It takes a song name and a list of songs as parameters, and plays the song with the given name from the given list
      *
      * @param songName the name of the song file
      */
-    public void playSongPlaylist(String songName) {
+    public void playSong(String songName) {
         String path = "src/main/resources/songslist/" + songName + ".wav";
         try {
             file = new File(path);
@@ -54,11 +55,11 @@ public class MusicPlayerService {
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
                     out.println("Press '4' for Jump to specific time");
-                    out.println("Press '5' for stop");
+                    out.println("Press '0' for stop");
                     out.println("Please Enter your choice");
                     choice = scanner.nextInt();
                     musicControl(this.clip, choice, songName);
-                } while (choice != 5);
+                } while (choice != 0);
                 // Closing the scanner object.
                 scanner.close();
             } else {
@@ -136,6 +137,11 @@ public class MusicPlayerService {
         audioInputStream = AudioSystem.getAudioInputStream(new File(path).getAbsoluteFile());
         clip.open(audioInputStream);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    public void playCreatedPlayList(List<PlayList> playList) {
+
+
     }
 
 }

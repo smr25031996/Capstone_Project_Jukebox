@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.service;
 
+import com.niit.jdp.model.PlayList;
 import com.niit.jdp.model.Song;
 import com.niit.jdp.repository.SongRepository;
 
@@ -64,6 +65,16 @@ public class PlayListService {
         out.println("=========================================================================================");
         sortedAccordingToGivenType.forEach(out::println);
         out.println("=========================================================================================");
+    }
+
+    public void displayCreatedPlayList(List<PlayList> newPlayListSongs, String playlistName) {
+        out.println("playListName = " + playlistName);
+        out.println("=========================================================================================");
+        out.println("SongId    Song Name           Artist              Album          Genre          Duration");
+        out.println("=========================================================================================");
+        newPlayListSongs.forEach(out::println);
+        out.println("=========================================================================================");
+
     }
 
 }
