@@ -13,16 +13,17 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 public class MusicPlayerService {
-    File file;
+    private File file;
 
     // to store current position
-    long currentFrame;
+    private long currentFrame;
     // current status of clip
-    String status = "playing";
+    private String status;
 
     // A variable of type Clip.
-    Clip clip;
-    AudioInputStream audioInputStream;
+    private Clip clip;
+    // Used to read audio data from an audio stream.
+    private AudioInputStream audioInputStream;
 
 
     /**
@@ -43,6 +44,7 @@ public class MusicPlayerService {
                 clip.open(inputStream);
                 // Playing the song.
                 clip.start();
+                status = "play";
                 // Creating a scanner object to read the input from the user.
                 Scanner scanner = new Scanner(in);
                 int choice;
@@ -71,6 +73,7 @@ public class MusicPlayerService {
 
         switch (choice) {
             case 1:
+                //for pausing song
                 if (status.equals("paused")) {
                     out.println("audio is already paused");
                 } else {
@@ -80,8 +83,9 @@ public class MusicPlayerService {
                 }
                 break;
             case 2:
+                //for playing after pausing
                 if (status.equals("play")) {
-                    out.println("Audio is already " + "being played");
+                    out.println("Audio is already being played");
                 } else {
                     clip.close();
                     resetSong(songName);
@@ -90,6 +94,7 @@ public class MusicPlayerService {
                 }
                 break;
             case 3:
+                //for restart from beginning
                 clip.stop();
                 clip.close();
                 resetSong(songName);
@@ -98,19 +103,23 @@ public class MusicPlayerService {
                 clip.start();
                 break;
             case 4:
+                //for jumping to specific time
                 out.println("Enter time (" + 0 + ", " + clip.getMicrosecondLength() + ")");
-                Scanner sc = new Scanner(in);
-                long c = sc.nextLong();
-                if (c > 0 && c < clip.getMicrosecondLength()) {
+                Scanner scanner = new Scanner(in);
+                long pointer = scanner.nextLong();
+                if (pointer > 0 && pointer < clip.getMicrosecondLength()) {
                     clip.stop();
                     clip.close();
                     resetSong(songName);
-                    currentFrame = c;
-                    clip.setMicrosecondPosition(c);
+                    currentFrame = pointer;
+                    clip.setMicrosecondPosition(pointer);
                     clip.start();
+                } else {
+                    out.println("please Enter the value between specified range");
                 }
                 break;
             case 5:
+                //for Stopping the music
                 currentFrame = 0L;
                 clip.stop();
                 clip.close();

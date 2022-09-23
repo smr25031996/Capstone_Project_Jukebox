@@ -26,12 +26,14 @@ public class PlayListService {
      * @return A list of songs sorted according to the given type.
      */
     public List<Song> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
+        // Converting the sortType to lower case.
+        sortType.toLowerCase();
         databaseService.connect();
         List<Song> songList = songRepository.getAll(databaseService.getDatabaseConnection());
 
         Comparator<Song> songComparator = (o1, o2) -> {
             switch (sortType) {
-                case "songName":
+                case "song":
                     return String.CASE_INSENSITIVE_ORDER.compare(o1.getSongName(), o2.getSongName());
                 case "artist":
                     return String.CASE_INSENSITIVE_ORDER.compare(o1.getSongArtist(), o2.getSongArtist());

@@ -93,6 +93,7 @@ public class SongRepository {
      * @return The song name is being returned.
      */
     public String getSongBySongName(Connection connection, String songName) throws SQLException {
+        // Converting the song name to lower case.
 
         String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
         //  create a statement object
@@ -120,7 +121,6 @@ public class SongRepository {
      * @return The song name is being returned.
      */
     public String getSongByAlbum(Connection connection, String album) throws SQLException {
-
         String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
         //  create a statement object
         String searchedSongName = null;
@@ -147,7 +147,6 @@ public class SongRepository {
      * @return The song name is being returned.
      */
     public String getSongByGenre(Connection connection, String genre) throws SQLException {
-
         String songQuery = "select `song_name` from `songslist` where(`song_genre`=?);";
         //  create a statement object
         String searchedSongName = null;
@@ -174,7 +173,6 @@ public class SongRepository {
      * @return The song name is being returned.
      */
     public String getSongByArtists(Connection connection, String artist) throws ArtistNotFoundException {
-
         String songQuery = "select `song_name` from `songslist` where(`artist_name`=?);";
         //  create a statement object
         String searchedSongName = null;
