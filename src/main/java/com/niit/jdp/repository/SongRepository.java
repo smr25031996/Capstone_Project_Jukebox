@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.repository;
 
+import com.niit.jdp.exception.ArtistNotFoundException;
 import com.niit.jdp.model.Song;
 
 import java.sql.*;
@@ -172,7 +173,7 @@ public class SongRepository {
      * @param artist     The name of the artist whose song you want to search for.
      * @return The song name is being returned.
      */
-    public String getSongByArtists(Connection connection, String artist) throws SQLException {
+    public String getSongByArtists(Connection connection, String artist) throws ArtistNotFoundException {
 
         String songQuery = "select `song_name` from `songslist` where(`artist_name`=?);";
         //  create a statement object
@@ -188,6 +189,8 @@ public class SongRepository {
 
                 // Getting the value of the column `song_name` from the result set.
                 searchedSongName = resultSet.getString(song);
+        } catch (SQLException e) {
+            throw new ArtistNotFoundException("Artist is not Found");
         }
         return searchedSongName;
     }

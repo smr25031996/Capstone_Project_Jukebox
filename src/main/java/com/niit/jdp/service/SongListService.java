@@ -9,6 +9,8 @@ import com.niit.jdp.repository.SongRepository;
 
 import java.sql.SQLException;
 
+import static java.lang.System.out;
+
 public class SongListService {
     // Creating an object of SongRepository class.
     SongRepository songRepository = new SongRepository();
@@ -22,12 +24,12 @@ public class SongListService {
     public void displaySongMenu() throws SQLException, ClassNotFoundException {
         databaseService.connect();
         var allSong = songRepository.getAll(databaseService.getDatabaseConnection());
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("SongId    Song Name           Artist              Album          Genre          Duration");
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        out.println("SongId    Song Name           Artist              Album          Genre          Duration");
+        out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         // Printing all the songs in the database.
-        allSong.forEach(System.out::println);
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        allSong.forEach(out::println);
+        out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 
 }

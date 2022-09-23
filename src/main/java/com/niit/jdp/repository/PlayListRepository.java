@@ -5,6 +5,7 @@
  */
 package com.niit.jdp.repository;
 
+import com.niit.jdp.exception.SongNotFoundException;
 import com.niit.jdp.model.PlayList;
 import com.niit.jdp.model.Song;
 
@@ -67,8 +68,8 @@ public class PlayListRepository implements Repository {
         return numberOfRowsAffected > 0;
     }
 
-    public List<PlayList> getAllSongsInPlayList(Connection connection, String playlistName) {
-        List<PlayList> CreatedPlayList = new ArrayList<>();
+    public List<PlayList> getAllSongsInPlayList(Connection connection, String playlistName) throws SongNotFoundException {
+        List<PlayList> createdPlayList = new ArrayList<>();
         String getAllQuery = "SELECT * FROM `jukebox`.`" + playlistName + "`;";
         try (Statement readSongRecords = connection.createStatement()) {
 
@@ -90,13 +91,13 @@ public class PlayListRepository implements Repository {
                 PlayList songRecord = new Song(id, name, artist, album, genre, duration);
 
                 // Adding the song object to the list of songs.
-                CreatedPlayList.add(songRecord);
+                createdPlayList.add(songRecord);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new SongNotFoundException("There are no Songs in the playlist");
         }
 
-        return CreatedPlayList;
+        return createdPlayList;
     }
 
 }

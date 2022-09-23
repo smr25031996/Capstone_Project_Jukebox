@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class PlayListService {
     SongRepository songRepository = new SongRepository();
     DatabaseService databaseService = new DatabaseService();
@@ -54,12 +56,12 @@ public class PlayListService {
      */
     public void displaySortedList(String sortType, String playListName) throws SQLException, ClassNotFoundException {
         List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
-        System.out.println("playListName = " + playListName);
-        System.out.println("=========================================================================================");
-        System.out.println("SongId    Song Name           Artist              Album          Genre          Duration");
-        System.out.println("=========================================================================================");
-        sortedAccordingToGivenType.forEach(System.out::println);
-        System.out.println("=========================================================================================");
+        out.println("playListName = " + playListName);
+        out.println("=========================================================================================");
+        out.println("SongId    Song Name           Artist              Album          Genre          Duration");
+        out.println("=========================================================================================");
+        sortedAccordingToGivenType.forEach(out::println);
+        out.println("=========================================================================================");
     }
 
 }

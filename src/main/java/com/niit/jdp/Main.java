@@ -6,6 +6,7 @@
 
 package com.niit.jdp;
 
+import com.niit.jdp.exception.SongNotFoundException;
 import com.niit.jdp.model.PlayList;
 import com.niit.jdp.repository.PlayListRepository;
 import com.niit.jdp.repository.SongRepository;
@@ -18,8 +19,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException {
-        String music = "29";
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException, SongNotFoundException {
+        String music = "13";
         SongListService songListService = new SongListService();
         try {
             songListService.displaySongMenu();
