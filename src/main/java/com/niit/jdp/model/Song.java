@@ -20,10 +20,7 @@ public class Song extends PlayList {
     public Song() {
     }
 
-
 // This is a parametrised constructor.
-
-
     public Song(int songId, String songName, String songArtist, String songAlbum, String songGenre, String songDuration) {
         this.songId = songId;
         this.songName = songName;
@@ -33,53 +30,20 @@ public class Song extends PlayList {
         this.songDuration = songDuration;
     }
 
-    // This is a getter and setter method.
-    public int getSongId() {
-        return songId;
-    }
-
-    public void setSongId(int songId) {
-        this.songId = songId;
-    }
-
     public String getSongName() {
         return songName;
-    }
-
-    public void setSongName(String songName) {
-        this.songName = songName;
     }
 
     public String getSongGenre() {
         return songGenre;
     }
 
-    public void setSongGenre(String songGenre) {
-        this.songGenre = songGenre;
-    }
-
     public String getSongArtist() {
         return songArtist;
     }
 
-    public void setSongArtist(String songArtist) {
-        this.songArtist = songArtist;
-    }
-
-    public String getSongDuration() {
-        return songDuration;
-    }
-
-    public void setSongDuration(String songDuration) {
-        this.songDuration = songDuration;
-    }
-
     public String getSongAlbum() {
         return songAlbum;
-    }
-
-    public void setSongAlbum(String songAlbum) {
-        this.songAlbum = songAlbum;
     }
 
     @Override
@@ -87,7 +51,7 @@ public class Song extends PlayList {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Song song = (Song) o;
-        return songId == song.songId && songDuration == song.songDuration && Objects.equals(songName, song.songName) && Objects.equals(songGenre, song.songGenre) && Objects.equals(songArtist, song.songArtist) && Objects.equals(songAlbum, song.songAlbum);
+        return songId == song.songId && Objects.equals(songDuration, song.songDuration) && Objects.equals(songName, song.songName) && Objects.equals(songGenre, song.songGenre) && Objects.equals(songArtist, song.songArtist) && Objects.equals(songAlbum, song.songAlbum);
     }
 
     @Override

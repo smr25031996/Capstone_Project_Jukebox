@@ -121,7 +121,7 @@ public class SongRepository {
      * @return The song name is being returned.
      */
     public String getSongByAlbum(Connection connection, String album, String playlist) throws SQLException {
-        String songQuery = "select `song_name` from `" + playlist + "` where(`song_name`=?);";
+        String songQuery = "select `song_name` from `" + playlist + "` where(`album_name`=?);";
         //  create a statement object
         String searchedSongName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
@@ -132,7 +132,6 @@ public class SongRepository {
             //  execute the query
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
-
                 // Getting the value of the column `song_name` from the result set.
                 searchedSongName = resultSet.getString(song);
         }
@@ -192,7 +191,6 @@ public class SongRepository {
         }
         return searchedSongName;
     }
-
 
 }
 

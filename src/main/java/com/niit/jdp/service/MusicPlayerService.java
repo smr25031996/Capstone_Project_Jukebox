@@ -5,20 +5,15 @@
  */
 package com.niit.jdp.service;
 
-import com.niit.jdp.model.PlayList;
-
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.*;
 
 public class MusicPlayerService {
-    private File file;
 
-    // Used to read audio data from an audio stream.
     AudioInputStream audioInputStream;
     // current status of clip
     private String status;
@@ -35,7 +30,7 @@ public class MusicPlayerService {
     public void playSong(String songName) {
         String path = "src/main/resources/songslist/" + songName + ".wav";
         try {
-            file = new File(path);
+            File file = new File(path);
             if (file.exists()) {
                 // Creating an audio input stream from the file.
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(file);
@@ -60,9 +55,6 @@ public class MusicPlayerService {
                     choice = scanner.nextInt();
                     musicControl(this.clip, choice, songName);
                 } while (choice != 5);
-                // Closing the scanner object.
-                // scanner.close();
-
             } else {
                 err.println("Song not Found");
             }
@@ -124,7 +116,6 @@ public class MusicPlayerService {
                 //for Stopping the music
                 currentFrame = 0L;
                 clip.stop();
-                // clip.close();
                 return;
             default:
                 out.println("Wrong Choice");
@@ -139,12 +130,6 @@ public class MusicPlayerService {
         clip.open(audioInputStream);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
-
-    public void playCreatedPlayList(List<PlayList> playList) {
-
-
-    }
-
 }
 
 

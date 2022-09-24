@@ -31,8 +31,6 @@ k
 ;src/test/java/com/niit/jdp/service/DatabaseServiceTest.java,d\6\d64740a0188cfe3a976d191fad90ad808745fea3
 q
 Asrc/test/java/com/niit/jdp/repository/PlayListRepositoryTest.java,d\c\dc4e0a34445b0eeaaff376d9b5bbd3069ed00e42
-e
-5src/main/java/com/niit/jdp/repository/Repository.java,b\f\bf6f65185120d5158c3b2f1089d03db6c03b1b2b
 w
 G.idea/sonarlint/issuestore/c/0/c04c2ff81e3dbdb25e1f1444fea8a3239c1cbca8,d\6\d66f6ee44eaa33dcf36fcc099f68764f7928a8be
 w
@@ -53,16 +51,8 @@ w
 G.idea/sonarlint/issuestore/f/7/f747d5db5319051af78b454e160b4b15cd91270e,8\4\84ddd2bfcde3db17b522dcb5995793df9ec5cd19
 w
 G.idea/sonarlint/issuestore/4/c/4ce48f682d917cd31fb2101cfe62841c01238ace,1\c\1cf062732d1f78ca39bf2ea5e5f48a33539d383f
-m
-=src/main/java/com/niit/jdp/repository/PlayListRepository.java,4\4\44f1e74fcae734be19b5f4003c62bb6be620937b
-i
-9src/main/java/com/niit/jdp/repository/SongRepository.java,e\d\edabe8e0dc5366eb0790ca0232dca645cdbc090d
 g
 7src/main/java/com/niit/jdp/service/DatabaseService.java,d\f\df915df9a9d3dc9bcfe75dc66a18455a235f099a
-^
-.src/main/java/com/niit/jdp/model/PlayList.java,7\8\785862512ee3cf8ee540533c6bc419816712a50f
-Z
-*src/main/java/com/niit/jdp/model/Song.java,0\1\014d77068afdd61babac0f449091ee271adda5cb
 q
 Asrc/main/java/com/niit/jdp/exception/ArtistNotFoundException.java,3\3\33f5c02a17cd7fe7318de36f173066aec52e887e
 o

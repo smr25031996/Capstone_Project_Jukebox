@@ -22,24 +22,8 @@ public class PlayList {
         songList = new ArrayList<>();
     }
 
-    public PlayList(String playListName) {
-        this.playListName = playListName;
-    }
-
-    public String getPlayListName() {
-        return playListName;
-    }
-
-    public void setPlayListName(String playListName) {
-        this.playListName = playListName;
-    }
-
     public List<Song> getSongList() {
         return songList;
-    }
-
-    public void setSongList(List<Song> songList) {
-        this.songList = songList;
     }
 
     @Override
