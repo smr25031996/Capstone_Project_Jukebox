@@ -50,13 +50,14 @@ public class MusicPlayerService {
                     out.println("Press '1' for Pause ");
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
-                    out.println("Press '4' for Jump to specific time");
-                    out.println("Press '5' for stop");
+                    out.println("Press '4' for looping song");
+                    out.println("Press '5' for Jump to specific time");
+                    out.println("Press '6' for stop");
                     out.println("************************************");
                     out.println("Please Enter your choice");
                     choice = scanner.nextInt();
                     musicControl(this.clip, choice, songName);
-                } while (choice != 5);
+                } while (choice != 6);
             } else {
                 err.println("Song not Found");
             }
@@ -99,6 +100,12 @@ public class MusicPlayerService {
                 clip.start();
                 break;
             case 4:
+                //for looping
+                clip.open();
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+                out.println("Currently playing song will play in loop");
+                break;
+            case 5:
                 //for jumping to specific time
                 out.println("Enter time (" + 0 + ", " + clip.getMicrosecondLength() + ")");
                 Scanner scanner = new Scanner(in);
@@ -113,8 +120,9 @@ public class MusicPlayerService {
                 } else {
                     out.println("please Enter the value between specified range");
                 }
+
                 break;
-            case 5:
+            case 6:
                 //for Stopping the music
                 currentFrame = 0L;
                 clip.stop();
