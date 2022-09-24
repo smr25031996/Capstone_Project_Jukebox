@@ -25,11 +25,9 @@ public class PlayListService {
      * @param sortType The type of sorting you want to do.
      * @return A list of songs sorted according to the given type.
      */
-    public List<Song> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
+    public List<Song> sortAccordingToGivenType(String sortType, List<Song> songList) throws SQLException, ClassNotFoundException {
         // Converting the sortType to lower case.
         databaseService.connect();
-        List<Song> songList = songRepository.getAll(databaseService.getDatabaseConnection());
-
         Comparator<Song> songComparator = (o1, o2) -> {
             switch (sortType) {
                 case "song":
@@ -55,8 +53,8 @@ public class PlayListService {
      * @param sortType     This is the type of sorting that the user wants to do.
      * @param playListName The name of the playlist that you want to display.
      */
-    public void displaySortedList(String sortType, String playListName) throws SQLException, ClassNotFoundException {
-        List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType);
+    public void displaySortedList(String sortType, String playListName, List<Song> songs) throws SQLException, ClassNotFoundException {
+        List<Song> sortedAccordingToGivenType = sortAccordingToGivenType(sortType, songs);
         out.println("playListName = " + playListName);
         out.println("=========================================================================================");
         out.println("SongId    Song Name           Artist              Album          Genre          Duration");

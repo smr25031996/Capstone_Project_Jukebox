@@ -51,8 +51,6 @@ w
 G.idea/sonarlint/issuestore/f/7/f747d5db5319051af78b454e160b4b15cd91270e,8\4\84ddd2bfcde3db17b522dcb5995793df9ec5cd19
 w
 G.idea/sonarlint/issuestore/4/c/4ce48f682d917cd31fb2101cfe62841c01238ace,1\c\1cf062732d1f78ca39bf2ea5e5f48a33539d383f
-g
-7src/main/java/com/niit/jdp/service/DatabaseService.java,d\f\df915df9a9d3dc9bcfe75dc66a18455a235f099a
 q
 Asrc/main/java/com/niit/jdp/exception/ArtistNotFoundException.java,3\3\33f5c02a17cd7fe7318de36f173066aec52e887e
 o
