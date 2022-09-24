@@ -40,6 +40,113 @@ public class ControlService {
     }
 
     /**
+     * It takes the user's choice and then calls the appropriate function from the SongRepository class
+     *
+     * @param scanner         Scanner object to take input from the user.
+     * @param songName        The name of the song that the user wants to play.
+     * @param songRepository  This is the object of SongRepository class.
+     * @param databaseService This is the object of DatabaseService class which is used to get the database connection.
+     * @param playlistName    The name of the playlist.
+     * @param userChoice      This is the choice of the user.
+     * @return The name of the song is being returned.
+     */
+    private static String getName(Scanner scanner, String songName, SongRepository songRepository, DatabaseService databaseService, String playlistName, String userChoice) throws SQLException, ArtistNotFoundException {
+        switch (userChoice) {
+            case "number":
+                out.println("Please Enter the number of  Song you want to hear");
+                int numberOfSong = scanner.nextInt();
+                //if user chose to find according to number of song
+                songName = songRepository.getSongById(databaseService.getDatabaseConnection(), numberOfSong);
+                out.println("Currently playing => " + songName);
+                break;
+            case "song":
+                // Displaying the list of songs available in the database.
+                out.println("Please Enter the name of  Song you want to hear from the playlist list");
+                String name = scanner.next();
+                // Getting the song by name.
+                songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, playlistName);
+                out.println("Currently playing =>  " + songName);
+                break;
+            case "artist":
+                out.println("Please Enter the name of  artist whose song you want to hear from the Playlist list");
+                String artist = scanner.next();
+                songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, playlistName);
+                out.println("Currently playing => " + songName);
+                break;
+            case "genre":
+                out.println("Please Enter the name of  genre from which you want to hear song");
+                String genre = scanner.next();
+                songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, playlistName);
+                out.println("Currently playing => " + songName);
+                break;
+
+            case "album":
+                out.println("Please Enter the name of  album from which you want to hear song");
+                String album = scanner.next();
+                songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, playlistName);
+                out.println("Currently playing => " + songName);
+                break;
+            default:
+                out.println("Wrong Choice,Please Enter valid choice");
+                break;
+        }
+        return songName;
+    }
+
+    /**
+     * It takes the choice of the user and then calls the appropriate function to get the song name
+     *
+     * @param scanner         Scanner object to take input from the user.
+     * @param defaultPlaylist The default playlist that the user has chosen.
+     * @param songName        The name of the song that is to be played.
+     * @param songRepository  This is the object of SongRepository class.
+     * @param databaseService This is the object of DatabaseService class which is used to get the database connection.
+     * @param choiceOfUser    This is the choice of the user.
+     * @return The song name is being returned.
+     */
+    private static String getSongName(Scanner scanner, String defaultPlaylist, String songName, SongRepository songRepository, DatabaseService databaseService, String choiceOfUser) throws SQLException, ArtistNotFoundException {
+        switch (choiceOfUser) {
+            case "number":
+                out.println("Please Enter the number of  Song you want to hear");
+                int numberOfSong = scanner.nextInt();
+                //if user chose to find according to number of song
+                songName = songRepository.getSongById(databaseService.getDatabaseConnection(), numberOfSong);
+                out.println("Currently  playing => " + songName);
+                break;
+            case "song":
+                // Displaying the list of songs available in the database.
+                out.println("Please Enter the name of  Song you want to hear from the song list");
+                String name = scanner.next();
+                // Getting the song by name.
+                songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, defaultPlaylist);
+                out.println("Currently  playing => " + songName);
+                break;
+            case "artist":
+                out.println("Please Enter the name of  artist whose song you want to hear from the song list");
+                String artist = scanner.next();
+                songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, defaultPlaylist);
+                out.println("Currently playing => " + songName);
+                break;
+            case "genre":
+                out.println("Please Enter the name of  genre from which you want to hear song");
+                String genre = scanner.next();
+                songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, defaultPlaylist);
+                out.println("Currently playing => " + genre);
+                break;
+            case "album":
+                out.println("Please Enter the name of  album from which you want to hear song");
+                String album = scanner.next();
+                songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, defaultPlaylist);
+                out.println("Currently playing =>" + album);
+                break;
+            default:
+                out.println("Wrong Choice,Please Enter valid choice");
+                break;
+        }
+        return songName;
+    }
+
+    /**
      * It takes the user's choice as input and performs the operation accordingly
      *
      * @param choice The choice of the user.
@@ -78,44 +185,7 @@ public class ControlService {
                 out.println("you can choose song according : number, song, artist, album, genre");
                 out.println("Kindly enter your choice");
                 String choiceOfUser = scanner.next().toLowerCase();
-                switch (choiceOfUser) {
-                    case "number":
-                        out.println("Please Enter the number of  Song you want to hear");
-                        int numberOfSong = scanner.nextInt();
-                        //if user chose to find according to number of song
-                        songName = songRepository.getSongById(databaseService.getDatabaseConnection(), numberOfSong);
-                        out.println("Currently  playing = " + songName);
-                        break;
-                    case "song":
-                        // Displaying the list of songs available in the database.
-                        out.println("Please Enter the name of  Song you want to hear from the song list");
-                        String name = scanner.next();
-                        // Getting the song by name.
-                        songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, defaultPlaylist);
-                        out.println("song playing = " + songName);
-                        break;
-                    case "artist":
-                        out.println("Please Enter the name of  artist whose song you want to hear from the song list");
-                        String artist = scanner.next();
-                        songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, defaultPlaylist);
-                        out.println("Currently playing => " + songName);
-                        break;
-                    case "genre":
-                        out.println("Please Enter the name of  genre from which you want to hear song");
-                        String genre = scanner.next();
-                        songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, defaultPlaylist);
-                        out.println("Currently playing => " + genre);
-                        break;
-                    case "album":
-                        out.println("Please Enter the name of  album from which you want to hear song");
-                        String album = scanner.next();
-                        songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, defaultPlaylist);
-                        out.println("Currently playing =>" + album);
-                        break;
-                    default:
-                        out.println("Wrong Choice,Please Enter valid choice");
-                        break;
-                }
+                songName = getSongName(scanner, defaultPlaylist, songName, songRepository, databaseService, choiceOfUser);
                 // Playing the song.
                 musicPlayer.playSong(songName);
                 break;
@@ -147,7 +217,8 @@ public class ControlService {
                     }
                 } while (userInput != 3);
                 // Getting all the songs in the playlist.
-                List<Song> createdPlayList = playListRepository.getAllSongsInPlayList(databaseService.getDatabaseConnection(), playlistName);
+                List<Song> createdPlayList = playListRepository.getAllSongsInPlayList(databaseService.getDatabaseConnection(),
+                        playlistName);
                 // Displaying the created playlist.
                 playListService.displayCreatedPlayList(createdPlayList, playlistName);
                 //now if user want play any song of created playlist then
@@ -156,46 +227,13 @@ public class ControlService {
                 out.println("you can choose song according : number,song ,artist ,album,genre");
                 out.println("Kindly enter your choice");
                 String userChoice = scanner.next().toLowerCase();
-                switch (userChoice) {
-                    case "number":
-                        out.println("Please Enter the number of  Song you want to hear");
-                        int numberOfSong = scanner.nextInt();
-                        //if user chose to find according to number of song
-                        songName = songRepository.getSongById(databaseService.getDatabaseConnection(), numberOfSong);
-                        out.println("Currently playing => " + songName);
-                        break;
-                    case "song":
-                        // Displaying the list of songs available in the database.
-                        out.println("Please Enter the name of  Song you want to hear from the song list");
-                        String name = scanner.next();
-                        // Getting the song by name.
-                        songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, playlistName);
-                        out.println("Currently playing =>  " + songName);
-                        break;
-                    case "artist":
-                        out.println("Please Enter the name of  artist whose song you want to hear from the song list");
-                        String artist = scanner.next();
-                        songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, playlistName);
-                        out.println("Currently playing => " + songName);
-                        break;
-                    case "genre":
-                        out.println("Please Enter the name of  genre from which you want to hear song");
-                        String genre = scanner.next();
-                        songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, playlistName);
-                        out.println("Currently playing => " + songName);
-                        break;
-
-                    case "album":
-                        out.println("Please Enter the name of  album from which you want to hear song");
-                        String album = scanner.next();
-                        songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, playlistName);
-                        out.println("Currently playing => " + songName);
-                        break;
-                    default:
-                        out.println("Wrong Choice,Please Enter valid choice");
-                        break;
+                songName = getName(scanner, songName, songRepository, databaseService, playlistName, userChoice);
+                boolean isSongInPlaylist = songRepository.isSongInPlaylist(databaseService.getDatabaseConnection(), songName, playlistName);
+                if (isSongInPlaylist) {
+                    musicPlayer.playSong(songName);
+                } else {
+                    out.println("Sorry the choice you entered is not in the Playlist");
                 }
-                musicPlayer.playSong(songName);
                 break;
 
             case 5:
@@ -205,6 +243,7 @@ public class ControlService {
                 out.println("Wrong Choice,Please Enter valid choice");
                 break;
         }
+
     }
 
 }

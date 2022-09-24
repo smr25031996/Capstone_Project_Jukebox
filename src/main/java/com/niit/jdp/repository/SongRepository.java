@@ -174,7 +174,7 @@ public class SongRepository {
     public String getSongByArtists(Connection connection, String artist, String playlist) throws ArtistNotFoundException {
         String songQuery = "select `song_name` from `" + playlist + "` where(`artist_name`=?);";
         //  create a statement object
-        String searchedSongName = null;
+        String searchedSongName = " ";
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
 
             //  set the values of the query parameters
@@ -192,5 +192,29 @@ public class SongRepository {
         return searchedSongName;
     }
 
+    public boolean isSongInPlaylist(Connection connection, String songInPlaylist, String playlist) throws ArtistNotFoundException {
+        String songQuery = "select `song_name` from `" + playlist + "` where(`song_name`=?);";
+        //  create a statement object
+        String searchedSongName = " ";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
+
+            //  set the values of the query parameters
+            preparedStatement.setString(1, songInPlaylist);
+
+            //  execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+
+                // Getting the value of the column `song_name` from the result set.
+                searchedSongName = resultSet.getString(song);
+        } catch (SQLException e) {
+            throw new ArtistNotFoundException("Artist is not Found");
+        }
+        return searchedSongName.equals(songInPlaylist);
+    }
+
+
 }
+
+
 

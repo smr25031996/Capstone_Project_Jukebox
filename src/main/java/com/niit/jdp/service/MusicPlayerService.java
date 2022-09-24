@@ -120,7 +120,6 @@ public class MusicPlayerService {
                 } else {
                     out.println("please Enter the value between specified range");
                 }
-
                 break;
             case 6:
                 //for Stopping the music
