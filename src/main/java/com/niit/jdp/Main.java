@@ -12,14 +12,15 @@ import com.niit.jdp.service.ControlService;
 
 import java.sql.SQLException;
 
-import static java.lang.System.out;
-
 public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException, ArtistNotFoundException, SongNotFoundException {
-        out.println("******************** Wel Come to the World of Songs ********************");
+
+
         ControlService controlService = new ControlService();
-        // Calling the menu() function.
+
         controlService.songMenu();
+
+
     }
 
 }

@@ -6,7 +6,6 @@
 package com.niit.jdp.service;
 
 import com.niit.jdp.model.Song;
-import com.niit.jdp.repository.SongRepository;
 
 import java.sql.SQLException;
 import java.util.Comparator;
@@ -15,7 +14,7 @@ import java.util.List;
 import static java.lang.System.out;
 
 public class PlayListService {
-    SongRepository songRepository = new SongRepository();
+
     DatabaseService databaseService = new DatabaseService();
 
     /**

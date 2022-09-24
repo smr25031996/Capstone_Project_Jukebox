@@ -25,12 +25,12 @@ public class DatabaseService {
     // a private field to store the reference of the connection object
     private Connection databaseConnection;
 
-    public Connection getDatabaseConnection() {
-        return databaseConnection;
-    }
-
     public DatabaseService() {
         this.databaseConnection = null;
+    }
+
+    public Connection getDatabaseConnection() {
+        return databaseConnection;
     }
 
     // a method that can connect to the database

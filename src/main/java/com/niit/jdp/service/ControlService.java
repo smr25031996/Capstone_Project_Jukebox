@@ -116,12 +116,79 @@ public class ControlService {
         return songName;
     }
 
+    private static void createPlaylist(Scanner scanner, String songName, SongRepository songRepository, PlayListRepository playListRepository, PlayListService playListService, MusicPlayerService musicPlayer, DatabaseService databaseService) throws SQLException, SongNotFoundException, ClassNotFoundException, ArtistNotFoundException {
+        String key;
+        do {
+            //Creating your own playlist
+            out.println("Please enter the playlist name, you want create");
+            String playlistName = scanner.next();
+            playListRepository.createPlayList(databaseService.getDatabaseConnection(), playlistName);
+            //if user wants to add, remove the music to newly created playlist
+            int userInput;
+            do {
+                out.println("#########################################");
+                out.println(">> Press '1' for adding the song ");
+                out.println(">> Press '2' for removing the song list");
+                out.println(">> Press '3' for exit");
+                out.println("#########################################");
+                out.println(">> Please Enter your choice");
+                userInput = scanner.nextInt();
+                if (userInput == 1) {
+                    out.println(">> Please Enter the song Number which you want add in your Playlist: " + playlistName);
+                    int songNumber = scanner.nextInt();
+                    playListRepository.addSongInPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
+                    out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is added in the " + playlistName);
+                } else if (userInput == 2) {
+                    out.println(">> Please Enter the song Number which you want remove in your playlist: " + playlistName);
+                    int songNumber = scanner.nextInt();
+                    playListRepository.removeSongFromPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
+                    out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is removed in the " + playlistName);
+                } else if (userInput != 3) {
+                    err.println("Wrong Choice,Please Enter valid choice");
+                }
+            } while (userInput != 3);
+            // Getting all the songs in the playlist.
+            List<Song> createdPlayList = playListRepository.getAllSongsInPlayList(databaseService.getDatabaseConnection(), playlistName);
+            // Displaying the created playlist.
+            playListService.displayCreatedPlayList(createdPlayList, playlistName);
+            //now user wants to sort this playlist
+            out.println(">> Do you want shuffle this playlist:(yes/no)");
+            String input = scanner.next().toLowerCase();
+            if (input.equals("yes")) {
+                out.println(">> Enter the type for Sorting");
+                out.println(">> Sort types-> song, artist, album, genre");
+                String sort = scanner.next().toLowerCase();
+                playListService.displaySortedList(sort, playlistName, createdPlayList);
+            }
+
+            //now if user want play any song of created playlist then
+            out.println("................................................................");
+            out.println(">> Please Enter the Song you want to hear");
+            out.println(">> You can choose song according : number, song, artist, album, genre");
+            out.println("................................................................");
+            out.println(">> Kindly enter your choice");
+            String userChoice = scanner.next().toLowerCase();
+            songName = getName(scanner, songName, songRepository, databaseService, playlistName, userChoice);
+            boolean isSongInPlaylist = songRepository.isSongInPlaylist(databaseService.getDatabaseConnection(), songName, playlistName);
+            if (isSongInPlaylist) {
+                out.println("Currently playing => " + songName);
+                musicPlayer.playSong(songName);
+            } else {
+                err.println("Sorry the choice you entered is not in the Playlist");
+            }
+            //if user wants to create another playlist
+            out.println("Do you want create another playlist ? yes /no");
+            key = scanner.next().toLowerCase();
+        } while (key.compareTo("no") != 0);
+    }
+
     /**
      * This function is used to display the menu to the user and according to the user choice it will call the respective
      * function according to the user choice
      */
     public void songMenu() throws SQLException, ArtistNotFoundException, ClassNotFoundException, SongNotFoundException {
         Scanner scanner = new Scanner(in);
+        out.println("******************** Wel Come to the World of Songs ********************");
         int choice1;
         do {
             out.println(">> Press '1' for seeing the Song that we offered ");
@@ -164,7 +231,7 @@ public class ControlService {
                 // Creating an object of PlayListService class.
                 out.println(">> Please enter the basis on you want to sort the song list ");
                 out.println(">> Sort types are -> song,artist,album,genre");
-                String sortType = scanner.nextLine().toLowerCase();
+                String sortType = scanner.next().toLowerCase();
                 List<Song> playlist = songRepository.getAll(databaseService.getDatabaseConnection());
                 // Sorting the song list according to the given type.
                 playListService.displaySortedList(sortType, defaultPlaylist, playlist);
@@ -181,65 +248,7 @@ public class ControlService {
                 musicPlayer.playSong(songName);
                 break;
             case 4:
-                //Creating your own playlist
-                out.println("Please enter the playlist name, you want create");
-                String playlistName = scanner.nextLine();
-                playListRepository.createPlayList(databaseService.getDatabaseConnection(), playlistName);
-                //if user wants to add, remove the music to newly created playlist
-                int userInput;
-                do {
-                    out.println("#########################################");
-                    out.println(">> Press '1' for adding the song ");
-                    out.println(">> Press '2' for removing the song list");
-                    out.println(">> Press '3' for exit");
-                    out.println("#########################################");
-                    out.println(">> Please Enter your choice");
-                    userInput = scanner.nextInt();
-                    if (userInput == 1) {
-                        out.println(">> Please Enter the song Number which you want add in your Playlist: " + playlistName);
-                        int songNumber = scanner.nextInt();
-                        playListRepository.addSongInPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
-                        out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is added in the " + playlistName);
-                    } else if (userInput == 2) {
-                        out.println(">> Please Enter the song Number which you want remove in your playlist: " + playlistName);
-                        int songNumber = scanner.nextInt();
-                        playListRepository.removeSongFromPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
-                        out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is removed in the " + playlistName);
-                    } else {
-                        err.println("Wrong Choice,Please Enter valid choice");
-                    }
-                } while (userInput != 3);
-                // Getting all the songs in the playlist.
-                List<Song> createdPlayList = playListRepository.getAllSongsInPlayList(databaseService.getDatabaseConnection(),
-                        playlistName);
-                // Displaying the created playlist.
-                playListService.displayCreatedPlayList(createdPlayList, playlistName);
-                //now user wants to sort this playlist
-                out.println(">> Do you want shuffle this playlist:(yes/no)");
-                String input = scanner.next().toLowerCase();
-                if (input.equals("yes")) {
-                    out.println(">> Enter the type for Sorting");
-                    out.println(">> Sort types-> song, artist, album, genre");
-                    String sort = scanner.next().toLowerCase();
-                    playListService.displaySortedList(sort, playlistName, createdPlayList);
-                }
-
-                //now if user want play any song of created playlist then
-                //for listening one song
-                out.println("................................................................");
-                out.println(">> Please Enter the Song you want to hear");
-                out.println(">> You can choose song according : number,song ,artist ,album,genre");
-                out.println("................................................................");
-                out.println(">> Kindly enter your choice");
-                String userChoice = scanner.next().toLowerCase();
-                songName = getName(scanner, songName, songRepository, databaseService, playlistName, userChoice);
-                boolean isSongInPlaylist = songRepository.isSongInPlaylist(databaseService.getDatabaseConnection(), songName, playlistName);
-                if (isSongInPlaylist) {
-                    out.println("Currently playing => " + songName);
-                    musicPlayer.playSong(songName);
-                } else {
-                    err.println("Sorry the choice you entered is not in the Playlist");
-                }
+                createPlaylist(scanner, songName, songRepository, playListRepository, playListService, musicPlayer, databaseService);
                 break;
 
             case 5:
@@ -250,7 +259,6 @@ public class ControlService {
                 err.println("Wrong Choice,Please Enter valid choice");
                 break;
         }
-
     }
 
 }
