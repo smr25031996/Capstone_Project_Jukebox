@@ -55,13 +55,14 @@ public class MusicPlayerService {
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
                     out.println("Press '4' for Jump to specific time");
-                    out.println("Press '0' for stop");
+                    out.println("Press '5' for stop");
                     out.println("Please Enter your choice");
                     choice = scanner.nextInt();
                     musicControl(this.clip, choice, songName);
-                } while (choice != 0);
+                } while (choice != 5);
                 // Closing the scanner object.
-                scanner.close();
+                // scanner.close();
+
             } else {
                 err.println("Song not Found");
             }
@@ -123,8 +124,8 @@ public class MusicPlayerService {
                 //for Stopping the music
                 currentFrame = 0L;
                 clip.stop();
-                clip.close();
-                break;
+                // clip.close();
+                return;
             default:
                 out.println("Wrong Choice");
                 break;
