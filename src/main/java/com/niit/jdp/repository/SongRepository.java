@@ -92,10 +92,10 @@ public class SongRepository {
      * @param songName   The name of the song that we want to search for.
      * @return The song name is being returned.
      */
-    public String getSongBySongName(Connection connection, String songName) throws SQLException {
+    public String getSongBySongName(Connection connection, String songName, String playlist) throws SQLException {
         // Converting the song name to lower case.
 
-        String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
+        String songQuery = "select `song_name` from `" + playlist + "` where(`song_name`=?);";
         //  create a statement object
         String searchedSongName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
@@ -120,8 +120,8 @@ public class SongRepository {
      * @param album      The name of the album.
      * @return The song name is being returned.
      */
-    public String getSongByAlbum(Connection connection, String album) throws SQLException {
-        String songQuery = "select `song_name` from `songslist` where(`song_name`=?);";
+    public String getSongByAlbum(Connection connection, String album, String playlist) throws SQLException {
+        String songQuery = "select `song_name` from `" + playlist + "` where(`song_name`=?);";
         //  create a statement object
         String searchedSongName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
@@ -146,8 +146,8 @@ public class SongRepository {
      * @param genre      The genre of the song.
      * @return The song name is being returned.
      */
-    public String getSongByGenre(Connection connection, String genre) throws SQLException {
-        String songQuery = "select `song_name` from `songslist` where(`song_genre`=?);";
+    public String getSongByGenre(Connection connection, String genre, String playlist) throws SQLException {
+        String songQuery = "select `song_name` from `" + playlist + "` where(`song_genre`=?);";
         //  create a statement object
         String searchedSongName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
@@ -172,8 +172,8 @@ public class SongRepository {
      * @param artist     The name of the artist whose song you want to search for.
      * @return The song name is being returned.
      */
-    public String getSongByArtists(Connection connection, String artist) throws ArtistNotFoundException {
-        String songQuery = "select `song_name` from `songslist` where(`artist_name`=?);";
+    public String getSongByArtists(Connection connection, String artist, String playlist) throws ArtistNotFoundException {
+        String songQuery = "select `song_name` from `" + playlist + "` where(`artist_name`=?);";
         //  create a statement object
         String searchedSongName = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(songQuery)) {
