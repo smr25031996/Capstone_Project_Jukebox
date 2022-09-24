@@ -184,6 +184,7 @@ public class ControlService {
                         songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, playlistName);
                         out.println("Currently playing => " + songName);
                         break;
+
                     case "album":
                         out.println("Please Enter the name of  album from which you want to hear song");
                         String album = scanner.next();
