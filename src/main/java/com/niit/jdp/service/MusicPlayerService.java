@@ -46,11 +46,13 @@ public class MusicPlayerService {
                 int choice;
                 // do while loop which will run at least once and then check the condition.
                 do {
+                    out.println("************************************");
                     out.println("Press '1' for Pause ");
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
                     out.println("Press '4' for Jump to specific time");
                     out.println("Press '5' for stop");
+                    out.println("************************************");
                     out.println("Please Enter your choice");
                     choice = scanner.nextInt();
                     musicControl(this.clip, choice, songName);

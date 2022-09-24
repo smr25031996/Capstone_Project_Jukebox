@@ -24,7 +24,7 @@ public class ControlService {
      * This function is used to display the menu to the user and according to the user choice it will call the respective
      * function according to the user choice
      */
-    public static void songMenu() throws SQLException, ArtistNotFoundException, ClassNotFoundException, SongNotFoundException {
+    public void songMenu() throws SQLException, ArtistNotFoundException, ClassNotFoundException, SongNotFoundException {
         Scanner scanner = new Scanner(in);
         int choice1;
         do {
@@ -39,7 +39,12 @@ public class ControlService {
         } while (choice1 != 5);
     }
 
-    public static void controlAccordingToUserChoice(int choice) throws SQLException, ClassNotFoundException, ArtistNotFoundException, SongNotFoundException {
+    /**
+     * It takes the user's choice as input and performs the operation accordingly
+     *
+     * @param choice The choice of the user.
+     */
+    public void controlAccordingToUserChoice(int choice) throws SQLException, ClassNotFoundException, ArtistNotFoundException, SongNotFoundException {
         Scanner scanner = new Scanner(in);
         String defaultPlaylist = "SongsList";
         String songName = "Agar Tum Saath Ho";
@@ -63,7 +68,7 @@ public class ControlService {
                 // Creating an object of PlayListService class.
                 out.println("Please enter the basis on you want to sort the song list ");
                 out.println("Sort types are -> song,artist,album,genre");
-                String sortType = scanner.nextLine();
+                String sortType = scanner.nextLine().toLowerCase();
                 // Sorting the song list according to the given type.
                 playListService.displaySortedList(sortType, defaultPlaylist);
                 break;

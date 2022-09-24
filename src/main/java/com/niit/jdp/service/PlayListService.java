@@ -27,7 +27,6 @@ public class PlayListService {
      */
     public List<Song> sortAccordingToGivenType(String sortType) throws SQLException, ClassNotFoundException {
         // Converting the sortType to lower case.
-        sortType.toLowerCase();
         databaseService.connect();
         List<Song> songList = songRepository.getAll(databaseService.getDatabaseConnection());
 
