@@ -27,8 +27,14 @@ public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException, ArtistNotFoundException, SongNotFoundException {
 
         out.println("******************** Wel Come to the World of Songs ********************");
+        menu();
+
+
+    }
+
+    public static void menu() throws SQLException, ArtistNotFoundException, ClassNotFoundException, SongNotFoundException {
         Scanner scanner = new Scanner(in);
-        int choice;
+        int choice1;
         do {
             out.println("Press '1' for seeing the Song that we offered ");
             out.println("Press '2' for Sorting the song list");
@@ -36,9 +42,9 @@ public class Main {
             out.println("Press '4' for Creating your own playlist");
             out.println("Press '5' for Closing music program");
             out.println("Please Enter your choice");
-            choice = scanner.nextInt();
-            controlAccordingToUserChoice(choice);
-        } while (choice != 5);
+            choice1 = scanner.nextInt();
+            controlAccordingToUserChoice(choice1);
+        } while (choice1 != 5);
     }
 
     public static void controlAccordingToUserChoice(int choice) throws SQLException, ClassNotFoundException, ArtistNotFoundException, SongNotFoundException {
@@ -85,31 +91,30 @@ public class Main {
                         break;
                     case "song":
                         // Displaying the list of songs available in the database.
-                        songListService.displaySongMenu();
-                        out.println("Ajeeb Dastaan, Matargashti, Mere Sapnon, Dil Se Re, Agar Tum Saath Ho, Airanichya deva, Yeh Kya Hua, Jai Ho, Yeh Jo Mohabbat, Kabhi Neem Neem");
+                        //out.println("Ajeeb Dastaan, Matargashti, Mere Sapnon, Dil Se Re, Agar Tum Saath Ho, Airanichya deva, Yeh Kya Hua, Jai Ho, Yeh Jo Mohabbat, Kabhi Neem Neem");
                         out.println("Please Enter the name of  Song you want to hear from the song list");
-                        String name = scanner.nextLine();
+                        String name = scanner.next();
                         // Getting the song by name.
                         songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, defaultPlaylist);
                         out.println("song playing = " + songName);
                         break;
                     case "artist":
                         out.println("Please Enter the name of  artist whose song you want to hear from the song list");
-                        String artist = scanner.nextLine();
+                        String artist = scanner.next();
                         songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, defaultPlaylist);
                         out.println("song playing = " + songName);
                         break;
                     case "genre":
                         out.println("Please Enter the name of  genre from which you want to hear song");
-                        String genre = scanner.nextLine();
+                        String genre = scanner.next();
                         songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, defaultPlaylist);
-                        out.println("song playing = " + songName);
+                        out.println("song playing = " + genre);
                         break;
                     case "album":
                         out.println("Please Enter the name of  album from which you want to hear song");
-                        String album = scanner.nextLine();
+                        String album = scanner.next();
                         songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, defaultPlaylist);
-                        out.println("song playing = " + songName);
+                        out.println("song playing = " + album);
                         break;
                     default:
                         out.println("Wrong Choice,Please Enter valid choice");
@@ -166,26 +171,26 @@ public class Main {
                         songListService.displaySongMenu();
                         out.println("Ajeeb Dastaan, Matargashti, Mere Sapnon, Dil Se Re, Agar Tum Saath Ho, Airanichya deva, Yeh Kya Hua, Jai Ho, Yeh Jo Mohabbat, Kabhi Neem Neem");
                         out.println("Please Enter the name of  Song you want to hear from the song list");
-                        String name = scanner.nextLine();
+                        String name = scanner.next();
                         // Getting the song by name.
                         songName = songRepository.getSongBySongName(databaseService.getDatabaseConnection(), name, playlistName);
                         out.println("song playing = " + songName);
                         break;
                     case "artist":
                         out.println("Please Enter the name of  artist whose song you want to hear from the song list");
-                        String artist = scanner.nextLine();
+                        String artist = scanner.next();
                         songName = songRepository.getSongByArtists(databaseService.getDatabaseConnection(), artist, playlistName);
                         out.println("song playing = " + songName);
                         break;
                     case "genre":
                         out.println("Please Enter the name of  genre from which you want to hear song");
-                        String genre = scanner.nextLine();
+                        String genre = scanner.next();
                         songName = songRepository.getSongByGenre(databaseService.getDatabaseConnection(), genre, playlistName);
                         out.println("song playing = " + songName);
                         break;
                     case "album":
                         out.println("Please Enter the name of  album from which you want to hear song");
-                        String album = scanner.nextLine();
+                        String album = scanner.next();
                         songName = songRepository.getSongByAlbum(databaseService.getDatabaseConnection(), album, playlistName);
                         out.println("song playing = " + songName);
                         break;
