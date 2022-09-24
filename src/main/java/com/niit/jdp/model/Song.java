@@ -18,10 +18,12 @@ public class Song extends PlayList {
 
     // This is a no-args constructor.
     public Song() {
+        super(playListName);
     }
 
 // This is a parametrised constructor.
     public Song(int songId, String songName, String songArtist, String songAlbum, String songGenre, String songDuration) {
+        super(playListName);
         this.songId = songId;
         this.songName = songName;
         this.songArtist = songArtist;

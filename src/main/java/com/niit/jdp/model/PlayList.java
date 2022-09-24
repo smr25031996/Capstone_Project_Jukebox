@@ -18,7 +18,8 @@ public class PlayList {
     // This is a constructor.
 
 
-    public PlayList() {
+    public PlayList(String playListName) {
+        this.playListName = playListName;
         songList = new ArrayList<>();
     }
 
