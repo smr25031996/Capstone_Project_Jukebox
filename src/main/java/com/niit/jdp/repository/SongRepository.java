@@ -12,7 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongRepository {
+public class SongRepository implements Repository1 {
 
     // A variable that is used to store the name of the column `song_name` in the database.
     String song = "song_name";
@@ -23,6 +23,7 @@ public class SongRepository {
      * @param connection This is the connection object that is used to connect to the database.
      * @return A list of songs.
      */
+    @Override
     public List<Song> getAll(Connection connection) throws SQLException {
 
         // Creating a new list of songs.
@@ -65,6 +66,7 @@ public class SongRepository {
      * @param songId     The id of the song you want to get the name of.
      * @return The name of the song.
      */
+    @Override
     public String getSongById(Connection connection, int songId) throws SQLException {
 
         String songQuery = "select `song_name` from `songslist` where(`song_id`=?);";
@@ -92,6 +94,7 @@ public class SongRepository {
      * @param songName   The name of the song that we want to search for.
      * @return The song name is being returned.
      */
+    @Override
     public String getSongBySongName(Connection connection, String songName, String playlist) throws SQLException {
         // Converting the song name to lower case.
 
@@ -120,6 +123,7 @@ public class SongRepository {
      * @param album      The name of the album.
      * @return The song name is being returned.
      */
+    @Override
     public String getSongByAlbum(Connection connection, String album, String playlist) throws SQLException {
         String songQuery = "select `song_name` from `" + playlist + "` where(`album_name`=?);";
         //  create a statement object
@@ -145,6 +149,7 @@ public class SongRepository {
      * @param genre      The genre of the song.
      * @return The song name is being returned.
      */
+    @Override
     public String getSongByGenre(Connection connection, String genre, String playlist) throws SQLException {
         String songQuery = "select `song_name` from `" + playlist + "` where(`song_genre`=?);";
         //  create a statement object
@@ -171,6 +176,7 @@ public class SongRepository {
      * @param artist     The name of the artist whose song you want to search for.
      * @return The song name is being returned.
      */
+    @Override
     public String getSongByArtists(Connection connection, String artist, String playlist) throws ArtistNotFoundException {
         String songQuery = "select `song_name` from `" + playlist + "` where(`artist_name`=?);";
         //  create a statement object
@@ -192,6 +198,7 @@ public class SongRepository {
         return searchedSongName;
     }
 
+    @Override
     public boolean isSongInPlaylist(Connection connection, String songInPlaylist, String playlist) throws ArtistNotFoundException {
         String songQuery = "select `song_name` from `" + playlist + "` where(`song_name`=?);";
         //  create a statement object

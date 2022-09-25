@@ -47,10 +47,6 @@ w
 G.idea/sonarlint/issuestore/8/4/84ddd2bfcde3db17b522dcb5995793df9ec5cd19,e\b\eb7d6d769cfaa94807a8725fe155b971d2917de2
 w
 G.idea/sonarlint/issuestore/1/c/1cf062732d1f78ca39bf2ea5e5f48a33539d383f,7\d\7d69973ced96fd995beeb74f2651f23b2823c55a
-o
-?src/main/java/com/niit/jdp/exception/SongNotFoundException.java,5\8\58271fa51d1458ca4a9291ff7fff818f7a443c36
-q
-Asrc/main/java/com/niit/jdp/exception/ArtistNotFoundException.java,3\3\33f5c02a17cd7fe7318de36f173066aec52e887e
 w
 G.idea/sonarlint/issuestore/d/f/df9cfd6dbe417cc292d051d7827b30885be710e1,b\5\b5299875ae9aadade582415ba997efcd71d0e679
 w
@@ -65,5 +61,3 @@ w
 G.idea/sonarlint/issuestore/7/d/7d69973ced96fd995beeb74f2651f23b2823c55a,f\9\f954ee79faa475e17231b30089380717c89b0d21
 X
 (src/test/java/com/niit/jdp/MainTest.java,8\3\83279fe65871df462157ef6a55aa33407b035fa3
-^
-.src/main/java/com/niit/jdp/model/PlayList.java,7\8\785862512ee3cf8ee540533c6bc419816712a50f

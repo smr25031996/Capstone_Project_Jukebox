@@ -172,7 +172,7 @@ public class ControlService {
      */
     public void songMenu() throws SQLException, ArtistNotFoundException, ClassNotFoundException, SongNotFoundException {
         Scanner scanner = new Scanner(in);
-        out.println("******************** Wel Come to the World of Songs ********************");
+        out.println("********************Wel Come to the World of Music********************");
         int choice1;
         do {
             out.println(">> Press '1' for seeing the Song that we offered ");
@@ -236,7 +236,7 @@ public class ControlService {
                 break;
 
             case 5:
-                out.println("******************Thanks For using World of Songs****************");
+                out.println("******************Thanks For using World of Music****************");
                 out.println("See You Soon");
                 break;
             default:
