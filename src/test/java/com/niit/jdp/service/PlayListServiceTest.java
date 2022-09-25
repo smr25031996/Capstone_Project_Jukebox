@@ -16,9 +16,9 @@ class PlayListServiceTest {
 
     @Test
     void sortAccordingToGivenType() {
+        String expected = "";
+
     }
 
-    @Test
-    void displaySortedList() {
-    }
+
 }

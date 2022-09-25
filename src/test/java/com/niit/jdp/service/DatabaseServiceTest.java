@@ -28,4 +28,7 @@ class DatabaseServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void printConnectionStatus() {
+    }
 }

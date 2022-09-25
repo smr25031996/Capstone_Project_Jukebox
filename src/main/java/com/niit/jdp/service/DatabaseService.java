@@ -10,9 +10,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import static java.lang.System.err;
-import static java.lang.System.out;
-
 public class DatabaseService {
 
     // the URL of the database
@@ -50,13 +47,5 @@ public class DatabaseService {
 
         // 3. check if the connection is successful
         return databaseConnection != null;
-    }
-
-    public void printConnectionStatus() {
-        if (databaseConnection != null) {
-            out.println("Connected to the database");
-        } else {
-            err.println("Not connected to the database");
-        }
     }
 }

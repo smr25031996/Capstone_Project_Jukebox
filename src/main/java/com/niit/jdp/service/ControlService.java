@@ -29,7 +29,7 @@ public class ControlService {
      * @param choiceOfUser    This is the choice of the user.
      * @return The song name is being returned.
      */
-    private static String getSongName(String defaultPlaylist, String songName, SongRepository songRepository, DatabaseService databaseService, String choiceOfUser) throws SQLException, ArtistNotFoundException {
+    public static String getSongName(String defaultPlaylist, String songName, SongRepository songRepository, DatabaseService databaseService, String choiceOfUser) throws SQLException, ArtistNotFoundException {
         Scanner scanner = new Scanner(in);
         switch (choiceOfUser) {
             // Getting the song name from the number.
@@ -82,7 +82,7 @@ public class ControlService {
      * @param musicPlayer        This is the object of MusicPlayerService class.
      * @param databaseService    This is the object of DatabaseService class.
      */
-    private static void createPlaylist(String songName, SongRepository songRepository, PlayListRepository playListRepository, PlayListService playListService, MusicPlayerService musicPlayer, DatabaseService databaseService) throws SQLException, SongNotFoundException, ClassNotFoundException, ArtistNotFoundException {
+    public static void createPlaylist(String songName, SongRepository songRepository, PlayListRepository playListRepository, PlayListService playListService, MusicPlayerService musicPlayer, DatabaseService databaseService) throws SQLException, SongNotFoundException, ClassNotFoundException, ArtistNotFoundException {
         String key;
         Scanner scanner = new Scanner(in);
         do {
@@ -139,7 +139,7 @@ public class ControlService {
      * @param databaseService    This is the object of DatabaseService class which is used to get the database connection.
      * @param playlistName       The name of the playlist to which the song is to be added or removed.
      */
-    private static void addOrRemoveFromPlaylist(SongRepository songRepository, PlayListRepository playListRepository, DatabaseService databaseService, String playlistName) throws SQLException {
+    public static void addOrRemoveFromPlaylist(SongRepository songRepository, PlayListRepository playListRepository, DatabaseService databaseService, String playlistName) throws SQLException {
         Scanner scanner = new Scanner(in);
         int userInput;
         do {
