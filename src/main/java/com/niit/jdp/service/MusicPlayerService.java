@@ -50,11 +50,13 @@ public class MusicPlayerService {
                     out.println("Press '1' for Pause ");
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
-                    out.println("Press '3' for lopping the Song");
+                    out.println("Press '4' for lopping the Song");
                     out.println("Press '5' for Jump to specific time");
                     out.println("Press '6' for stop");
+                    out.println("************************************");
                     out.println("Please Enter your choice");
                     choice = scanner.nextInt();
+                    // Calling the method `musicControl` with the parameters `this.clip, choice, songName`
                     musicControl(this.clip, choice, songName);
                 } while (choice != 6);
             } else {

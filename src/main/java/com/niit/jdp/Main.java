@@ -16,8 +16,10 @@ public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, RuntimeException, ArtistNotFoundException, SongNotFoundException {
 
 
+        // Creating an object of the ControlService class.
         ControlService controlService = new ControlService();
 
+        // Calling the songMenu() method of the ControlService class.
         controlService.songMenu();
 
 

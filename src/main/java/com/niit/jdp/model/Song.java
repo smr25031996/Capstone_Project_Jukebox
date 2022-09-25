@@ -7,7 +7,7 @@ package com.niit.jdp.model;
 
 import java.util.Objects;
 
-public class Song extends PlayList {
+public class Song {
     // Declaring the variables.
     private int songId;
     private String songName;
@@ -18,12 +18,10 @@ public class Song extends PlayList {
 
     // This is a no-args constructor.
     public Song() {
-        super(playListName);
     }
 
 // This is a parametrised constructor.
     public Song(int songId, String songName, String songArtist, String songAlbum, String songGenre, String songDuration) {
-        super(playListName);
         this.songId = songId;
         this.songName = songName;
         this.songArtist = songArtist;
