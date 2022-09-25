@@ -95,7 +95,6 @@ public class PlayListRepository implements Repository {
         } catch (SQLException e) {
             throw new SongNotFoundException("There are no Songs in the playlist");
         }
-
         return createdPlayList;
     }
 
