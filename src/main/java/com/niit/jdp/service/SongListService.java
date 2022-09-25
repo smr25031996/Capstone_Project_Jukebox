@@ -19,7 +19,7 @@ public class SongListService {
     DatabaseService databaseService = new DatabaseService();
 
     /**
-     * > This function displays all the songs in the database
+     * This function displays all the songs in the database
      */
     public void displaySongMenu() throws SQLException, ClassNotFoundException {
         databaseService.connect();
