@@ -14,6 +14,7 @@ import static java.lang.System.*;
 
 public class MusicPlayerService {
 
+    // Used to read the audio data from the specified input stream.
     AudioInputStream audioInputStream;
     // current status of clip
     private String status;

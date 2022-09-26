@@ -28,7 +28,6 @@ class PlayListRepositoryTest {
     @Test
     void addSongInPlayList() throws SQLException, ClassNotFoundException {
         //given wrong song number expecting return false
-        int songId = 15;
         databaseService.connect();
         boolean expected = false;
         boolean actual = playListRepository.addSongInPlayList(databaseService.getDatabaseConnection(), "songslist", 15);
@@ -38,7 +37,6 @@ class PlayListRepositoryTest {
     @Test
     void removeSongFromPlayList() throws SQLException, ClassNotFoundException {
         //given wrong song number expecting return false
-        int songId = 15;
         databaseService.connect();
         boolean expected = false;
         boolean actual = playListRepository.addSongInPlayList(databaseService.getDatabaseConnection(), "songslist", 15);
