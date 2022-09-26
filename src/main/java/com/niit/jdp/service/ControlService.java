@@ -139,7 +139,9 @@ public class ControlService {
      * @param databaseService    This is the object of DatabaseService class which is used to get the database connection.
      * @param playlistName       The name of the playlist to which the song is to be added or removed.
      */
-    public static void addOrRemoveFromPlaylist(SongRepository songRepository, PlayListRepository playListRepository, DatabaseService databaseService, String playlistName) throws SQLException {
+    public static void addOrRemoveFromPlaylist(SongRepository songRepository, PlayListRepository playListRepository, DatabaseService databaseService, String playlistName) throws SQLException, ClassNotFoundException {
+        SongListService songListService = new SongListService();
+        songListService.displaySongMenu();
         Scanner scanner = new Scanner(in);
         int userInput;
         do {
