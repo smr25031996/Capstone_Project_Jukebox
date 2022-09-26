@@ -156,12 +156,12 @@ public class ControlService {
                 out.println(">> Please Enter the song Number which you want add in your Playlist: " + playlistName);
                 int songNumber = scanner.nextInt();
                 playListRepository.addSongInPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
-                out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is added in the " + playlistName);
+                out.println("***" + songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is added in the " + playlistName + "***");
             } else if (userInput == 2) {
                 out.println(">> Please Enter the song Number which you want remove in your playlist: " + playlistName);
                 int songNumber = scanner.nextInt();
                 playListRepository.removeSongFromPlayList(databaseService.getDatabaseConnection(), playlistName, songNumber);
-                out.println(songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is removed in the " + playlistName);
+                out.println("***" + songRepository.getSongById(databaseService.getDatabaseConnection(), songNumber) + " Song is removed in the " + playlistName + "***");
             } else if (userInput != 3) {
                 err.println("Wrong Choice,Please Enter valid choice");
             }
