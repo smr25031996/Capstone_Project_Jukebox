@@ -51,10 +51,10 @@ public class MusicPlayerService {
                     out.println("Press '2' for resume");
                     out.println("Press '3' for restart");
                     out.println("Press '4' for lopping the Song");
-                    out.println("Press '5' for Jump to specific time");
+                    out.println("Press '5' for entering the time frame in song you want");
                     out.println("Press '6' for stop");
                     out.println("************************************");
-                    out.println("Please Enter your choice");
+                    out.println(">> Please Enter your choice");
                     choice = scanner.nextInt();
                     // Calling the method `musicControl` with the parameters `this.clip, choice, songName`
                     musicControl(this.clip, choice, songName);
@@ -108,18 +108,18 @@ public class MusicPlayerService {
                 break;
             case 5:
                 //for jumping to specific time
-                out.println("Enter time (" + 0 + ", " + clip.getMicrosecondLength() + ")");
+                out.println("Enter time between : " + 0 + "-" + clip.getMicrosecondLength());
                 Scanner scanner = new Scanner(in);
-                long pointer = scanner.nextLong();
-                if (pointer > 0 && pointer < clip.getMicrosecondLength()) {
+                long timeFrame = scanner.nextLong();
+                if (timeFrame > 0 && timeFrame < clip.getMicrosecondLength()) {
                     clip.stop();
                     clip.close();
                     resetSong(songName);
-                    currentFrame = pointer;
-                    clip.setMicrosecondPosition(pointer);
+                    currentFrame = timeFrame;
+                    clip.setMicrosecondPosition(timeFrame);
                     clip.start();
                 } else {
-                    out.println("please Enter the value between specified range");
+                    out.println("Please Enter the value between specified range");
                 }
                 break;
             case 6:
